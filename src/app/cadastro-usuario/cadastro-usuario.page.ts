@@ -26,6 +26,10 @@ export class CadastroUsuarioPage implements OnInit {
       this.router.navigate(['/login']);
     }).catch(()=>{
       this.presentToast('Cadastro inválido');
+
+
+
+      
     })
   }
  async presentToast(msg: string){
