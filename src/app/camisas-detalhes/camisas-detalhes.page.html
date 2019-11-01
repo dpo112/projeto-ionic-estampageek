@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Detalhes de camisas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<form [formGroup]="formGroup">
+<ion-list>
+  <ion-item>
+    <ion-label floating>Nome da camisa:</ion-label>
+    <ion-input formControlName="nomeCamisa" value="{{camisa.nomeCamisa}}" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Preço:</ion-label>
+      <ion-input formControlName="preco" value="{{camisa.preco}}" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Tamanho:</ion-label>
+        <ion-input formControlName="tamanho" value="{{camisa.tamanho}}" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Descrição:</ion-label>
+        <ion-input formControlName="descricao" value="{{camisa.descricao}}" type="text"></ion-input>
+      </ion-item>
+      <ion-button expand="danger" (click)="atualizar()">Atualizar</ion-button>
+      <ion-button color="danger" (click)="confirm()">Excluir</ion-button>
+
+</ion-list>
+</form>
+</ion-content>
