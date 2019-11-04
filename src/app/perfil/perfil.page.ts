@@ -16,7 +16,7 @@ export class PerfilPage implements OnInit {
     formGroup : FormGroup;
     idUser : string;
     perfil : Perfil = new Perfil();
-    imagem: any;
+    imagem: any; 
   
     constructor(private formBuild : FormBuilder,
       private auth : AngularFireAuth,
