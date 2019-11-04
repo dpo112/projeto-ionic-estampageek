@@ -14,7 +14,7 @@ import { LoadingController } from '@ionic/angular';
 export class PerfilPage implements OnInit {
 
     formGroup : FormGroup;
-    idUser : string;
+    id : string;
     perfil : Perfil = new Perfil();
     imagem: any;
   
@@ -25,14 +25,16 @@ export class PerfilPage implements OnInit {
       private loadingController : LoadingController) { 
 
         this.formGroup = this.formBuild.group({
-            nome : ['', Validators.required],
-            sobrenome : ['', Validators.required],
+            nomeCompleto : ['', Validators.required],
+            senha : ['', Validators.required],
             email : ['', Validators.required],
+            dataNascimento : ['', Validators.required],
             telefone : ['', Validators.required],
+            cpf : ['', Validators.required],
         });
 
         this.auth.user.subscribe(resp =>{
-          this.idUser = resp.uid;
+          this.id = resp.uid;
           this.loadPerfil();
           this.downloadImage();
         })
@@ -41,7 +43,7 @@ export class PerfilPage implements OnInit {
  
   loadPerfil(){
     this.db.collection('perfil')
-    .doc(this.idUser).get().subscribe(response =>{
+    .doc(this.id).get().subscribe(response =>{
       if(response.exists == false){
         this.nPerfil();
       }else{
@@ -51,19 +53,22 @@ export class PerfilPage implements OnInit {
   }
   nPerfil(){
     let json = {
-      nome : "",
-      sobrenome : "",
-      telefone : "",
+      nomeCompleto : "",
+      senha : "",
       email : "",
+      dataNascimento : "",
+      telefone : "",
+      cpf : "",
+
     }
-    this.db.collection('perfil').doc(this.idUser).set(json).then(() =>{})
+    this.db.collection('perfil').doc(this.id).set(json).then(() =>{})
 
   }
 
   atualizar(){
 
     this.db.collection('perfil')
-    .doc(this.idUser)
+    .doc(this.id)
       .set(this.formGroup.value)
         .then(() =>{
           console.log('Atualizado com sucesso')
@@ -86,7 +91,7 @@ export class PerfilPage implements OnInit {
 
     await loading.present();
 
-    let urlImage = this.fireStorage.storage.ref().child(`perfil/${this.idUser}.jpg`);
+    let urlImage = this.fireStorage.storage.ref().child(`perfil/${this.id}.jpg`);
     urlImage.put(this.imagem).then(resp =>{
       this.downloadImage();
       loading.onDidDismiss();
@@ -94,7 +99,7 @@ export class PerfilPage implements OnInit {
   }
 
   downloadImage(){
-    let ref = this.fireStorage.storage.ref().child(`perfil/${this.idUser}.jpg`);
+    let ref = this.fireStorage.storage.ref().child(`perfil/${this.id}.jpg`);
     ref.getDownloadURL().then(url => {
       this.imagem = url;
     })

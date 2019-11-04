@@ -8,8 +8,8 @@ export class Perfil{
     telefone : string;
     cpf : string;
 
-    setPerfil(obj : any, id : any){
-        this.id = id;
+    setPerfil(obj : any){
+        this.id = obj.id;
         this.nomeCompleto = obj.nomeCompleto;
         this.senha = obj.senha;
         this.email = obj.email;

@@ -16,13 +16,23 @@
   <form [formGroup]="formGroup">
     <ion-list>
       <ion-item>
-        <ion-label floating>Nome</ion-label>
-        <ion-input formControlName="nome" value="{{perfil.nome}}" type="text">
+        <ion-label floating>Nome Completo</ion-label>
+        <ion-input formControlName="nomeCompleto" value="{{perfil.nomeCompleto}}" type="text">
           </ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Sobrenome</ion-label>
-        <ion-input formControlName="sobrenome" value="{{perfil.sobrenome}}" type="text">
+        <ion-label floating>Senha</ion-label>
+        <ion-input formControlName="senha" value="{{perfil.senha}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input formControlName="email" value="{{perfil.email}}" type="text">
+          </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Data de Nascimento</ion-label>
+        <ion-input formControlName="dataNascimento" value="{{perfil.dataNascimento}}" type="text">
           </ion-input>
       </ion-item>
       <ion-item>
@@ -31,8 +41,8 @@
              </ion-input>
       </ion-item>
       <ion-item>
-          <ion-label floating>E-mail</ion-label>
-          <ion-input formControlName="email"  value="{{perfil.email}}" type="text">
+          <ion-label floating>Cpf</ion-label>
+          <ion-input formControlName="cpf"  value="{{perfil.cpf}}" type="text">
             </ion-input>
       </ion-item>
   </ion-list>
