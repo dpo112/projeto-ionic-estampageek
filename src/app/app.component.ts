@@ -25,6 +25,16 @@ export class AppComponent {
       title: 'Logoff',
       url: '/logoff',
       icon: 'md-contact'
+    },
+    {
+      title: 'Cadastro de camisas',
+      url: '/camisas-cadastro',
+      icon: 'md-contact'
+    },
+    {
+      title: 'Camisas',
+      url: '/camisas',
+      icon: 'md-contact'
     }
  
  
