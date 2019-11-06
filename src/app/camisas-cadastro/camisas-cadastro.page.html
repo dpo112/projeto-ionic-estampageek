@@ -10,6 +10,12 @@
 </ion-header>
 
 <ion-content padding>
+
+    <img src="{{imagem}}" width="100%">
+      <ion-item>
+          <input type="file" (change)="enviaArquivo($event)"/>
+        </ion-item>
+  
   <form [formGroup]="formGroup"> <!-- vinculo com a variavel formGroup -->
     <ion-list>
       <ion-label floating>Nome da camisa</ion-label>

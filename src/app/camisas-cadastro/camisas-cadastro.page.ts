@@ -14,7 +14,7 @@ export class CamisasCadastroPage implements OnInit {
   // Não esquecer de declarar ReactiveFormsModule no module.ts
   formGroup :FormGroup;  // formulario de cadastro -> armazena todos os dados 
   imagem: any;
-
+  idImage : string;
 
 
   constructor(private formB : FormBuilder, // Inicializar o formulario (obrigatorio para formGroup)
@@ -38,8 +38,10 @@ export class CamisasCadastroPage implements OnInit {
   }
   cadastrar(){
     this.db.collection('camisas') // Seleciono a coleção do firebase
-    .add(this.formGroup.value).then(() =>{ //.add realiza o cadastro, os dados do formGroup
+    .add(this.formGroup.value).then(response =>{ //.add realiza o cadastro, os dados do formGroup
+      this.idImage = response.id;
       this.presentToast(); // Dadis cadastrados com sucesso
+      this.uploadStorage();
     }).catch(()=>{
       console.log("Erro ao Cadastrar") // Erro
     });
@@ -55,6 +57,34 @@ export class CamisasCadastroPage implements OnInit {
     toast.present();
   }
 
+
+  enviaArquivo(event){
+    this.imagem = event.srcElement.files[0];
+    
+  }
+  
+
+  async uploadStorage(){
+    let loading = await this.loadingController.create({
+      message: 'Carregando!',
+      duration: 2000
+    });
+
+    await loading.present();
+
+    let urlImage = this.fireStorage.storage.ref().child(`camisas/${this.idImage}.jpg`);
+    urlImage.put(this.imagem).then(resp =>{
+      this.downloadImage();
+      loading.onDidDismiss();
+    })
+  }
+
+  downloadImage(){
+    let ref = this.fireStorage.storage.ref().child(`camisas/${this.idImage}.jpg`);
+    ref.getDownloadURL().then(url => {
+      this.imagem = url;
+    })
+  }
   
 
 }
