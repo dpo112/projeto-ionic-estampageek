@@ -34,7 +34,6 @@ export class PerfilPage implements OnInit {
         });
 
         this.auth.user.subscribe(resp =>{
-          this.id = resp.uid;
           this.loadPerfil();
           this.downloadImage();
         })
