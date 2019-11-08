@@ -4,6 +4,7 @@ export class Camisa{
     preco : string;
     tamanho : string;
     descricao : string;
+    imagem : any;
 
     setCamisa(obj : any, id : any){
         this.id = id;

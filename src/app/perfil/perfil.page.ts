@@ -4,7 +4,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Perfil } from '../model/perfil';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { LoadingController } from '@ionic/angular';
+import { ToastController, LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-perfil',
@@ -22,7 +23,8 @@ export class PerfilPage implements OnInit {
       private auth : AngularFireAuth,
       private db : AngularFirestore,
       private fireStorage : AngularFireStorage,
-      private loadingController : LoadingController) { 
+      private toastCtrl: ToastController,
+      private loadingController: LoadingController) { 
 
         this.formGroup = this.formBuild.group({
             nomeCompleto : ['', Validators.required],
