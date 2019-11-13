@@ -1,4 +1,13 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+ion-content {
+  --background: #fff url("../../assets/fundo2.jpg") no-repeat center center / cover;
+  text-align: center;
+  
+}
+
+ion-item{
+  margin-bottom: 5px;
+}
+
+div{
+  margin-top: 300px;
 }
