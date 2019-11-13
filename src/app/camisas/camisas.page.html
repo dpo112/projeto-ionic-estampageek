@@ -13,14 +13,13 @@
 
 
       <ion-list>
-      <ion-item  *ngFor="let camisas of listaCamisa">
+      <ion-item *ngFor="let camisas of listaCamisa">
           <ion-label slot="start">
             <img src="{{camisas.imagem}}">
           </ion-label>
           <ion-label>
             <h2>{{camisas.nomeCamisa}}</h2>
             <h3>{{camisas.preco}}</h3>
-            <p>Listen, I've had a pretty messed up day...</p>
           </ion-label>
         </ion-item>
 </ion-list>
