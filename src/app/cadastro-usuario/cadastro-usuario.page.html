@@ -1,22 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Nova Cliente</ion-title>
+    <ion-title>Novo Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
+  <ion-content class="ion-padding home-app" fullscreen="true">
+    <div>
+    <ion-list>
     <ion-item>
-      <ion-label fixed>E-mail: </ion-label>
-      <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
+      <ion-input type="text" value="" [(ngModel)]="email" placeholder="Email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label fixed>Senha: </ion-label>
-      <ion-input type="password" [(ngModel)]="senha"></ion-input>
+      <ion-input type="password" [(ngModel)]="senha" placeholder="Senha"></ion-input>
     </ion-item>
   </ion-list>
-
-  <ion-button expand="full" (click)="cadastrar()">cadastrar</ion-button>
+</div>
+  <ion-button expand="fullscreen" (click)="cadastrar()">cadastrar</ion-button>
   
 
 </ion-content>
