@@ -1,9 +1,11 @@
-ion-content {
-    --background: #fff url("../../assets/heróis1.jpg") no-repeat center center / cover;
-    text-align: center;
-    
-}
+
 
 div{
-    padding-top: 200px;
+    padding-top: 150px;
+}
+ion-item{
+    margin-bottom: 5px;
+}
+ion-title{
+  text-align: center;
 }

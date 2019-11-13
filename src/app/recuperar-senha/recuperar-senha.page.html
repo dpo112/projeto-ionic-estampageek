@@ -1,19 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>RecuperarSenha</ion-title>
+    <ion-title>Recuperar Senha</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding home-app" fullscreen="true">
   <div>
-  <ion-list>
     <ion-item>
-      <ion-label fixed>E-mail</ion-label>
+      <ion-label fixed>E-mail:</ion-label>
       <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
     </ion-item>
-  </ion-list>
 </div>
-  <ion-button expand="fullscreen" (click)="recuperarSenha()">Recuperar Senha</ion-button>
+  <ion-button expand="full" (click)="recuperarSenha()">Recuperar Senha</ion-button>
   
 
 </ion-content>
