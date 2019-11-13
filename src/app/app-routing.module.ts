@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
   { path: 'cadastro-usuario', loadChildren: './cadastro-usuario/cadastro-usuario.module#CadastroUsuarioPageModule' },
   { path: 'logoff', loadChildren: './logoff/logoff.module#LogoffPageModule' },
-  { path: 'recuperar-senha', loadChildren: './recuperar-senha/recuperar-senha.module#RecuperarSenhaPageModule' },  { path: 'camisas', loadChildren: './camisas/camisas.module#CamisasPageModule' },
+  { path: 'recuperar-senha', loadChildren: './recuperar-senha/recuperar-senha.module#RecuperarSenhaPageModule' },
+  { path: 'camisas', loadChildren: './camisas/camisas.module#CamisasPageModule' },
   { path: 'camisas-cadastro', loadChildren: './camisas-cadastro/camisas-cadastro.module#CamisasCadastroPageModule' },
   { path: 'camisas-detalhes', loadChildren: './camisas-detalhes/camisas-detalhes.module#CamisasDetalhesPageModule' },
 
