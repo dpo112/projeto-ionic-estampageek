@@ -1,21 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Novo Cliente</ion-title>
+    <ion-title>
+      Cadastro
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-  <ion-content class="ion-padding home-app" fullscreen="true">
-    <div>
-    <ion-list>
+<ion-content padding>
+  <form [formGroup]="formGroup"> <!-- vinculo com a variavel formGroup -->
     <ion-item>
-      <ion-input type="text" value="" [(ngModel)]="email" placeholder="Email"></ion-input>
+      <ion-label position="floating">Nome Completo:</ion-label>
+      <!-- formControlName -> atributo do formgroup -->
+      <ion-input formControlName="nomeCompleto" type=text></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="password" [(ngModel)]="senha" placeholder="Senha"></ion-input>
-    </ion-item>
-  </ion-list>
-</div>
-  <ion-button expand="fullscreen" (click)="cadastrar()">cadastrar</ion-button>
-  
+        <ion-label position="floating">Data de Nacimento:</ion-label>
+        <ion-input formControlName="dataNascimento" type=text></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Senha:</ion-label>
+          <ion-input formControlName="senha" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">E-mail:</ion-label>
+          <ion-input formControlName="email" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">CPF:</ion-label>
+          <ion-input formControlName="cpf" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Telefone:</ion-label>
+          <ion-input formControlName="telefone" type=text></ion-input>
+        </ion-item>
+        <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
+        <ion-button expand="full" href="/login" color="danger">Cancelar</ion-button>
+</form>
 
 </ion-content>
