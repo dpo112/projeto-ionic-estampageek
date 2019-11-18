@@ -19,7 +19,8 @@
           </ion-label>
           <ion-label>
             <h2>{{camisas.nomeCamisa}}</h2>
-            <h3>{{camisas.preco}}</h3>
+            <h3>R${{camisas.preco}}</h3>
+            <ion-button icon-left size="medium" expand="full" shape="round" tappable (click)="camisasDetalhes()">Comprar</ion-button>
           </ion-label>
         </ion-item>
 </ion-list>

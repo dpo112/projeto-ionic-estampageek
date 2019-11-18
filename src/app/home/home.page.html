@@ -1,20 +1,14 @@
-<ion-header>
-<ion-item>
-  <ion-tabs>  
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button href="#" >
-      <ion-icon name="settings"></ion-icon>
-      <ion-label></ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
-</ion-item> 
-</ion-header>
-
 <ion-content>
-    <ion-card class="welcome-card background">
-      <img src="/assets/fundologo.png" alt="" />
+    <ion-searchbar type="url"></ion-searchbar>
+
+    <ion-card size="small" class="welcome-card background">
+    <img src="/assets/cardmarvel.jpeg" alt=""/>
     </ion-card>
+
+    <ion-card size="small" class="welcome-card background">
+    <img src="/assets/cardmeias.jpg" alt=""/>
+    </ion-card>
+
     <ion-list>
       <ion-item *ngFor="let camisas of listaCamisa">
         <ion-label slot="start">
@@ -22,7 +16,8 @@
         </ion-label>
           <ion-label>
           <h2>{{camisas.nomeCamisa}}</h2>
-          <h3>{{camisas.preco}}</h3>
+          <h3>R${{camisas.preco}}</h3>
+          <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="camisasDetalhes()">Comprar</ion-button>
         </ion-label>
         </ion-item> 
     </ion-list>    
