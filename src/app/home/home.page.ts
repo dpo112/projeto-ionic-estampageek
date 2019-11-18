@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Camisa } from '../model/camisas';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Produto } from '../model/produto';
 
 @Component({
   selector: 'app-home',
@@ -11,50 +11,38 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class HomePage{
 
-  listaCamisa : Camisa [] = []; // variavel para armazenar os clientes  (array)
+  listaProduto : Produto [] = [];
 
-  constructor(private db: AngularFirestore, //modulo de banco de dados
+  constructor(private db: AngularFirestore,
      private router : Router,private fireStorage : AngularFireStorage) {
 
     }
     ngOnInit(){
-            //solicitar os dados de coleção clientes no firebase
-    this.db.collection('camisas').snapshotChanges().subscribe(response=>{
+      this.db.collection('produto').snapshotChanges().subscribe(response=>{
 
-      this.listaCamisa = [];
-
-      //response retorna um objeto do firebase , precisamos converter em
-      //um objeto cliente
-
-      //forEach equivalente ao for, percorre todos os elementos do firebase
-      // cada um se chama doc, ou seja converter um doc em cliente
+      this.listaProduto = [];
       response.forEach(doc=>{
 
-        let f = new Camisa(); // Cria um novo objeto cliente
-        f.setCamisa(doc.payload.doc.data(),doc.payload.doc.id); // coloca os dados do doc em Clientes
+        let p = new Produto();
+        p.setProduto(doc.payload.doc.data(),doc.payload.doc.id);
         
         
-        let ref = this.fireStorage.storage.ref().child(`camisas/${f.id}.jpg`);
+        let ref = this.fireStorage.storage.ref().child(`produto/${p.id}.jpg`);
         ref.getDownloadURL().then(url => {
-          f.imagem = url;
-          this.listaCamisa.push(f);
+          p.imagem = url;
+          this.listaProduto.push(p);
         }).catch(()=>{
-          f.imagem = "../../assets/camisa-preta.png";
-          this.listaCamisa.push(f);
+          p.imagem = "../../assets/camisa-preta.png";
+          this.listaProduto.push(p);
         })
-
-
-
-      },err=>{ // em caso de erro, executa essa linha
+      },err=>{
         console.log(err);
       })
-      console.log(this.listaCamisa)
+      console.log(this.listaProduto)
     });
     }
     goPage(idValue : string){
-      // Redireciona para ClienteDetalhes
-      //enviando o id do cliente(idValue)
-      this.router.navigate(['camisas-detalhes',{id : idValue}]);
+      this.router.navigate(['produto-detalhes',{id : idValue}]);
   }
  
  }
