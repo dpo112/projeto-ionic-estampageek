@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Cadastro de Produtos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <img src="{{imagem}}" width="100%">
+    <ion-item>
+      <input type="file" (change)="enviaArquivo($event)"/>
+    </ion-item>
+  
+  <form [formGroup]="formGroup">
+  <ion-list>
+    <ion-label floating>Nome do Produto</ion-label>
+    <ion-input formControlName="nomeProduto" type=text></ion-input>
+  </ion-list>
+  <ion-list>
+    <ion-label floating>Preço</ion-label>
+    <ion-input formControlName="preco" type=text></ion-input>
+  </ion-list>
+  <ion-list>
+    <ion-label floating>Tamanho</ion-label>
+    <ion-input formControlName="tamanho" type=text></ion-input>
+  </ion-list>
+  <ion-list>
+    <ion-label floating>Descrição</ion-label>
+    <ion-input formControlName="descricao" type=text></ion-input>
+
+  <ion-label>Categoria</ion-label>
+    <ion-select placeholder="" formControlName="categoria">
+    <ion-select-option value="camiseta">Camiseta</ion-select-option>
+    <ion-select-option value="meia">Meia</ion-select-option>
+    <ion-select-option value="casaco">Casaco</ion-select-option>
+    </ion-select> 
+  </ion-list>
+  
+<ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
+</form>
+</ion-content>
