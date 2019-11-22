@@ -5,7 +5,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -18,9 +18,7 @@ const routes: Routes = [
   { path: 'cadastro-usuario', loadChildren: './cadastro-usuario/cadastro-usuario.module#CadastroUsuarioPageModule' },
   { path: 'logoff', loadChildren: './logoff/logoff.module#LogoffPageModule' },
   { path: 'recuperar-senha', loadChildren: './recuperar-senha/recuperar-senha.module#RecuperarSenhaPageModule' },
-  { path: 'camisas', loadChildren: './camisas/camisas.module#CamisasPageModule' },
-  { path: 'camisas-cadastro', loadChildren: './camisas-cadastro/camisas-cadastro.module#CamisasCadastroPageModule' },
-  { path: 'camisas-detalhes', loadChildren: './camisas-detalhes/camisas-detalhes.module#CamisasDetalhesPageModule' },  { path: 'produto', loadChildren: './produto/produto.module#ProdutoPageModule' },
+  { path: 'produto', loadChildren: './produto/produto.module#ProdutoPageModule' },
   { path: 'produto-cadastro', loadChildren: './produto-cadastro/produto-cadastro.module#ProdutoCadastroPageModule' },
   { path: 'produto-detalhe', loadChildren: './produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule' },
 
