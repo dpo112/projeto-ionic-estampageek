@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>carrinho</ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+        <img class="logo" src="/assets/fundologo.png" alt=""/>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <h2 text-align="center">Carrinho</h2>
+      <ion-list class="list">
+      <ion-item *ngFor="let produto of listaProduto">
+          <ion-label slot="start">
+            <img src="{{produto.imagem}}">
+          </ion-label>
+          <ion-label>
+            <h2>{{produto.nomeProduto}}</h2>
+            <h3>Tamanho: {{produto.tamanho}}</h3>
+            <h3>R$ {{produto.preco}}</h3> 
+          </ion-label>
+        </ion-item>
+</ion-list>
+<ion-item>
+    <h4>Consulte o seu frete</h4>
+    <ion-label color="medium" position="floating">Digite aqui o seu CEP</ion-label>
+    <ion-input type="text" ></ion-input>
 
+    <ion-button class="botao" icon-right size="small" shape="round">Calcular</ion-button>
+  </ion-item>
+  <ion-button icon-left size="medium" expand="full" shape="round" tappable (click)="produtoDetalhe()">Finalizar Comprar</ion-button>
 </ion-content>
