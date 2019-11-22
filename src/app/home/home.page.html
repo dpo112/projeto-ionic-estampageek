@@ -11,12 +11,14 @@
     <img src="/assets/cardmeias.jpg" alt=""/>
     </ion-card>
 
+
     <ion-list>
       <h3>Mais vendidos</h3>
       <ion-item *ngFor="let produto of listaProduto">
         <ion-label slot="start">
         <img src="{{produto.imagem}}" href="/produto">
         </ion-label>
+
           <ion-label>
           <h2>{{produto.nomeProduto}}</h2>
           <h3>R${{produto.preco}}</h3>

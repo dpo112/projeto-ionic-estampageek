@@ -42,7 +42,7 @@ ngOnInit(){
   });
   }
 
-  goPage(idValue : string){
-    this.router.navigate(['produto-detalhes',{id : idValue}]);
+  goPage(nomeProduto : string){
+    this.router.navigate(['produto-detalhe',{nomeProduto : nomeProduto}]);
   }
 }
