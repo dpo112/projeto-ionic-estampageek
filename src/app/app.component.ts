@@ -27,13 +27,13 @@ export class AppComponent {
       icon: 'md-contact'
     },
     {
-      title: 'Cadastro de camisas',
-      url: '/camisas-cadastro',
+      title: 'Cadastrar Produtos',
+      url: '/produto-cadastro',
       icon: 'md-contact'
     },
     {
-      title: 'Camisas',
-      url: '/camisas',
+      title: 'Lista de Produtos',
+      url: '/produto',
       icon: 'md-contact'
     }
  

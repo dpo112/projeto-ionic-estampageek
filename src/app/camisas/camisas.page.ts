@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Camisa } from 'src/app/model/camisas';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-camisas',
@@ -12,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class CamisasPage implements OnInit {
 
-  listaCamisa :Camisa[] = []; // variavel para armazenar os clientes  (array)
+  listaCamisa : Camisa [] = []; // variavel para armazenar os clientes  (array)
 
   constructor(private db: AngularFirestore, //modulo de banco de dados
      private router : Router,private fireStorage : AngularFireStorage) {
