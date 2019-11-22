@@ -26,7 +26,6 @@ export class HomePage{
         let p = new Produto();
         p.setProduto(doc.payload.doc.data(),doc.payload.doc.id);
         
-        
         let ref = this.fireStorage.storage.ref().child(`produto/${p.id}.jpg`);
         ref.getDownloadURL().then(url => {
           p.imagem = url;
@@ -41,8 +40,11 @@ export class HomePage{
       console.log(this.listaProduto)
     });
     }
-    goPage(idValue : string){
-      this.router.navigate(['produto-detalhes',{id : idValue}]);
+    goDetalhePage(idValue : string){
+      this.router.navigate(['produto-detalhe',{id : idValue}]);
+  }
+    goListaPage(idValue : string){
+      this.router.navigate(['produto',{id : idValue}]);
   }
  
  }

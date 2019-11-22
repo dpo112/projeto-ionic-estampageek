@@ -1,40 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Detalhes Produtos
-    </ion-title>
-  </ion-toolbar>
+  <img class="logo" src="/assets/fundologo.png" alt=""/>
 </ion-header>
 
-<ion-content padding>
-<form [formGroup]="formGroup">
-<ion-list>
-  <ion-item>
-    <ion-label floating>Nome do Produto:</ion-label>
-    <ion-input formControlName="nomeProduto" value="{{produto.nomeProduto}}" type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Preço:</ion-label>
-      <ion-input formControlName="preco" value="{{produto.preco}}" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label floating>Tamanho:</ion-label>
-        <ion-input formControlName="tamanho" value="{{produto.tamanho}}" type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Descrição:</ion-label>
-        <ion-input formControlName="descricao" value="{{produto.descricao}}" type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Categoria:</ion-label>
-        <ion-input formControlName="categoria" value="{{produto.categoria}}" type="text"></ion-input>
-      </ion-item>
-      <ion-button expand="danger" (click)="atualizar()">Atualizar</ion-button>
-      <ion-button color="danger" (click)="confirm()">Excluir</ion-button>
-
-</ion-list>
-</form>
+<ion-content>
+<ion-card class="welcome-card">
+<img src="{{produto.imagem}}" class="card" alt=""/>
+<ion-card-header>
+  <ion-card-title>{{produto.nomeProduto}}</ion-card-title>
+  <ion-card-subtitle>{{produto.descricao}}</ion-card-subtitle>
+  <ion-card-title>R${{produto.preco}}</ion-card-title> 
+</ion-card-header>
+  <ion-button icon-left size="small" shape="round" tappable (click)="Atualizar()" >Adicionar ao Carrinho</ion-button>
+  <ion-button icon-left size="small" shape="round" tappable (click)="Excluir()" color="success">Finalizar Compra</ion-button>
+</ion-card>  
 </ion-content>
