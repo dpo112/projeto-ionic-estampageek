@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'produto', loadChildren: './produto/produto.module#ProdutoPageModule' },
   { path: 'produto-cadastro', loadChildren: './produto-cadastro/produto-cadastro.module#ProdutoCadastroPageModule' },
   { path: 'produto-detalhe', loadChildren: './produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule' },
+  { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
 
 
 
