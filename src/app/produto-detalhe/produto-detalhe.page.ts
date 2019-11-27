@@ -64,48 +64,7 @@ obterImagem(){
   })
 }
 
-atualizar(){
-
-  this.db.collection('produto').doc(this.produto.id).set(this.formGroup.value).then(() =>{
-    this.presentToast();
-      }).catch(()=>{
-        console.log('Erro ao Atualizar')
-      })
-      this.router.navigate(['/home']); 
-}
-excluir(){
-  this.db.collection('produto').doc(this.produto.id).delete().then(()=>{
-    this.router.navigate(['home'])
-  })
-}
-async presentToast() {
-  const toast = await this.toastCtrl.create({
-    message: 'Atualizado com sucesso',
-    duration: 2000
-  });
-  toast.present();
-  }
-  async confirm() {
-    const alert = await this.alertController.create({
-      header: 'Mensagem',
-      message: 'Deseja Excluir?',
-      buttons: [
-        {
-          text: 'Não',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-
-          }
-        }, {
-          text: 'Sim',
-          handler: () => {
-            this.excluir()
-          }
-        }
-      ]
-    });
-
-    await alert.present();
-  }
+goCarrinhoPage(idValue : string){
+  this.router.navigate(['carrinho',{id : idValue}]);
  }
+}
