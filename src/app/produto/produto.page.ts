@@ -45,4 +45,5 @@ ngOnInit(){
 goDetalhePage(idValue : string){
   this.router.navigate(['produto-detalhe',{id : idValue}]);
  }
+
 }

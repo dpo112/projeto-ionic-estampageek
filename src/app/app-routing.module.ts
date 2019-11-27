@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: 'recuperar-senha', loadChildren: './recuperar-senha/recuperar-senha.module#RecuperarSenhaPageModule' },
   { path: 'produto', loadChildren: './produto/produto.module#ProdutoPageModule' },
   { path: 'produto-cadastro', loadChildren: './produto-cadastro/produto-cadastro.module#ProdutoCadastroPageModule' },
-  { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },  { path: 'produto-detalhe', loadChildren: './produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule' }
-
+  { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
+  { path: 'produto-detalhe', loadChildren: './produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule' }
 
 ];
 @NgModule({
@@ -31,3 +31,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
