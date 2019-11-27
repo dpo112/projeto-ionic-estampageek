@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Produto } from '../model/produto';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastController, AlertController } from '@ionic/angular';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.page.html',
-  styleUrls: ['./produto.page.scss'],
+  selector: 'app-carrinho',
+  templateUrl: './carrinho.page.html',
+  styleUrls: ['./carrinho.page.scss'],
 })
-export class ProdutoPage implements OnInit{
+export class CarrinhoPage implements OnInit {
 
   listaProduto :Produto[] = [];
 
@@ -42,7 +43,7 @@ ngOnInit(){
   });
   }
 
-goDetalhePage(idValue : string){
-  this.router.navigate(['produto-detalhe',{id : idValue}]);
- }
+  goPage(idValue : string){
+    this.router.navigate(['produto-detalhes',{id : idValue}]);
+  }
 }

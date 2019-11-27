@@ -1,9 +1,10 @@
-<ion-header>
+ <ion-header>
   <img class="logo" src="/assets/fundologo.png" alt=""/>
 </ion-header>
 
 <ion-content>
-    <ion-searchbar color="light" showCancelButton="always"></ion-searchbar>
+ <ion-searchbar color="light" cancelButtonText="Custom Cancel"></ion-searchbar>
+
     <ion-card size="small" class="welcome-card background">
     <img src="/assets/cardmarvel.jpeg" alt="" (click)="goListaPage()"/>
     </ion-card>
@@ -12,12 +13,14 @@
     <img src="/assets/cardmeias.jpg" alt="" (click)="goListaPage()"/>
     </ion-card>
 
+
     <ion-list>
       <h3>Mais vendidos</h3>
       <ion-item *ngFor="let produto of listaProduto">
         <ion-label slot="start">
         <img src="{{produto.imagem}}" href="/produto">
         </ion-label>
+
           <ion-label>
           <h2>{{produto.nomeProduto}}</h2>
           <h3>R${{produto.preco}}</h3>
@@ -40,7 +43,7 @@
     <ion-label>Lista</ion-label>
     </ion-tab-button>
     
-    <ion-tab-button href="#" >
+    <ion-tab-button href="carrinho" >
     <ion-icon name="cart"></ion-icon>
     <ion-label>Carrinho</ion-label>
     </ion-tab-button>

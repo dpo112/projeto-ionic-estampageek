@@ -3,7 +3,7 @@
 </ion-header>
 
 <ion-content>
-<ion-searchbar color="light" showCancelButton="always"></ion-searchbar>
+<ion-searchbar color="light"></ion-searchbar>
       <ion-list>
       <ion-item *ngFor="let produto of listaProduto">
           <ion-label slot="start">
@@ -12,8 +12,38 @@
           <ion-label>
             <h2>{{produto.nomeProduto}}</h2>
             <h3>R${{produto.preco}}</h3>
-            <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="goDetalhePage()">Detalhes</ion-button>
+            <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="goDetalhePage(produto.id)">Detalhes</ion-button>
           </ion-label>
       </ion-item>
       </ion-list>   
 </ion-content>
+<ion-item>
+  <ion-tabs>  
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button href="/home" >
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button href="/produto" >
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Lista</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button href="#" >
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Carrinho</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button href="#" >
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Favorito</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button href="/perfil" >
+      <ion-icon name="contact"></ion-icon>
+      <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  </ion-item> 

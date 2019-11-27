@@ -1,16 +1,17 @@
 <ion-header>
-  <img class="logo" src="/assets/fundologo.png" alt=""/>
+  <ion-buttons slot="start" class="buttons-first-slot sc-ion-buttons-ios-h sc-ion-buttons-ios-s ios hydrated" ></ion-buttons>
+<img class="logo" src="/assets/fundologo.png" alt=""/>
 </ion-header>
 
 <ion-content>
 <ion-card class="welcome-card">
 <img src="{{produto.imagem}}" class="card" alt=""/>
 <ion-card-header>
-  <ion-card-title>{{produto.nomeProduto}}</ion-card-title>
-  <ion-card-subtitle>{{produto.descricao}}</ion-card-subtitle>
-  <ion-card-title>R${{produto.preco}}</ion-card-title> 
+<div><ion-card-title>{{produto.nomeProduto}}</ion-card-title></div>
+<div><ion-card-subtitle>{{produto.descricao}}</ion-card-subtitle></div>
+<div><ion-card-title>R$ {{produto.preco}}</ion-card-title> </div>
 </ion-card-header>
-  <ion-button icon-left size="small" shape="round" tappable (click)="Atualizar()" >Adicionar ao Carrinho</ion-button>
-  <ion-button icon-left size="small" shape="round" tappable (click)="Excluir()" color="success">Finalizar Compra</ion-button>
+<ion-button icon-left size="small" shape="round" tappable (click)="goCarrinhoPage()" >Adicionar ao Carrinho</ion-button>
+<ion-button icon-left size="small" shape="round" tappable (click)="Compra()" color="success">Finalizar Compra</ion-button>
 </ion-card>  
 </ion-content>
