@@ -3,12 +3,13 @@
 </ion-header>
 
 <ion-content>
+    <ion-searchbar color="light" name="search" showCancelButton="always"></ion-searchbar>
     <ion-card size="small" class="welcome-card background">
-    <img src="/assets/cardmarvel.jpeg" alt="" href="/camisas"/>
+    <img src="/assets/cardmarvel.jpeg" alt="" (click)="goListaPage()"/>
     </ion-card>
 
     <ion-card size="small" class="welcome-card background">
-    <img src="/assets/cardmeias.jpg" alt=""/>
+    <img src="/assets/cardmeias.jpg" alt="" (click)="goListaPage()"/>
     </ion-card>
 
 
@@ -22,7 +23,7 @@
           <ion-label>
           <h2>{{produto.nomeProduto}}</h2>
           <h3>R${{produto.preco}}</h3>
-          <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="camisasDetalhes()">Comprar</ion-button>
+          <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="goDetalhePage(produto.id)">Detalhes</ion-button>
         </ion-label>
         </ion-item> 
     </ion-list>    

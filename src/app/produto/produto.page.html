@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+<ion-searchbar color="light" showCancelButton="always"></ion-searchbar>
       <ion-list>
       <ion-item *ngFor="let produto of listaProduto" href="../../produto-detalhe.page.html">
           <ion-label slot="start">
@@ -16,10 +17,10 @@
           <ion-label>
             <h2>{{produto.nomeProduto}}</h2>
             <h3>R${{produto.preco}}</h3>
-            <ion-button icon-left size="medium" expand="full" shape="round" tappable (click)="produtoDetalhe()">Comprar</ion-button>
+            <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="goDetalhePage()">Detalhes</ion-button>
           </ion-label>
-        </ion-item>
-</ion-list>   
+      </ion-item>
+      </ion-list>   
 </ion-content>
 <ion-item>
   <ion-tabs>  

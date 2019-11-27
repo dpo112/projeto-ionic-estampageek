@@ -4,6 +4,7 @@ import { Produto } from '../model/produto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController, AlertController } from '@ionic/angular';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-produto-detalhe',
@@ -21,7 +22,8 @@ constructor(private actRoute : ActivatedRoute,
   private db: AngularFirestore,
   private toastCtrl : ToastController,
   private router : Router,
-  private alertController : AlertController){
+  private alertController : AlertController,
+  private fireStorage : AngularFireStorage){
 
     this.id = this.actRoute.snapshot.paramMap.get('id');
 
@@ -47,27 +49,32 @@ ngOnInit() {
     this.produto.tamanho = response.data().tamanho;
     this.produto.descricao = response.data().descricao;
     this.produto.categoria = response.data().categoria;
-
+    this.obterImagem();
   
   })
 }
+
+obterImagem(){
+  let ref = this.fireStorage.storage.ref().child(`produto/${this.produto.id}.jpg`);
+    ref.getDownloadURL().then(url => {
+      this.produto.imagem = url;
+          
+}).catch(()=>{
+  this.produto.imagem = "../../assets/camisa-preta.png";      
+  })
+}
+
 atualizar(){
 
-  this.db.collection('produto')
-  .doc(this.produto.id)
-    .set(this.formGroup.value)
-      .then(() =>{
-        this.presentToast();
+  this.db.collection('produto').doc(this.produto.id).set(this.formGroup.value).then(() =>{
+    this.presentToast();
       }).catch(()=>{
         console.log('Erro ao Atualizar')
       })
       this.router.navigate(['/home']); 
 }
 excluir(){
-  this.db.collection('produto')
-    .doc(this.produto.id)
-      .delete().then(()=>{
-
+  this.db.collection('produto').doc(this.produto.id).delete().then(()=>{
     this.router.navigate(['home'])
   })
 }

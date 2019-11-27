@@ -1,40 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Detalhes Produtos
-    </ion-title>
-  </ion-toolbar>
+    <ion-buttons slot="start" class="buttons-first-slot sc-ion-buttons-ios-h sc-ion-buttons-ios-s ios hydrated" >
+        <ion-back-button defaulthref="/" class="sc-ion-back-button-ios-h sc-ion-back-button-ios-s ios button ion-activatable ion-focusable hydrated" ><button type="button" class="button-native sc-ion-back-button-ios"><span class="button-inner sc-ion-back-button-ios"><ion-icon class="sc-ion-back-button-ios ios hydrated" role="img" aria-label="arrow back"></ion-icon><span class="button-text sc-ion-back-button-ios" style="transform: translateX(0px);">Back</span></span></button></ion-back-button>
+      </ion-buttons>
+  <img class="logo" src="/assets/fundologo.png" alt=""/>
 </ion-header>
 
-<ion-content padding>
-<form [formGroup]="formGroup">
-<ion-list>
-  <ion-item>
-    <ion-label floating>Nome do Produto:</ion-label>
-    <ion-input formControlName="nomeProduto" value="{{produto.nomeProduto}}" type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Preço:</ion-label>
-      <ion-input formControlName="preco" value="{{produto.preco}}" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label floating>Tamanho:</ion-label>
-        <ion-input formControlName="tamanho" value="{{produto.tamanho}}" type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Descrição:</ion-label>
-        <ion-input formControlName="descricao" value="{{produto.descricao}}" type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Categoria:</ion-label>
-        <ion-input formControlName="categoria" value="{{produto.categoria}}" type="text"></ion-input>
-      </ion-item>
-      <ion-button expand="danger" (click)="atualizar()">Atualizar</ion-button>
-      <ion-button color="danger" (click)="confirm()">Excluir</ion-button>
-
-</ion-list>
-</form>
+<ion-content>
+<ion-card class="welcome-card">
+<img src="{{produto.imagem}}" class="card" alt=""/>
+<ion-card-header>
+  <div><ion-card-title>{{produto.nomeProduto}}</ion-card-title></div>
+  <div><ion-card-subtitle>{{produto.descricao}}</ion-card-subtitle></div>
+  <div><ion-card-title>R$ {{produto.preco}}</ion-card-title> </div>
+</ion-card-header>
+  <ion-button icon-left size="small" shape="round" tappable (click)="Carrinho()" >Adicionar ao Carrinho</ion-button>
+  <ion-button icon-left size="small" shape="round" tappable (click)="Compra()" color="success">Finalizar Compra</ion-button>
+</ion-card>  
 </ion-content>
