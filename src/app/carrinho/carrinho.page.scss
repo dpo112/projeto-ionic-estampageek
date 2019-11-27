@@ -1,16 +1,31 @@
-ion-content{
+ion-content {
+    --background: #fff url("../../assets/fundo2.jpg") no-repeat center center / cover;
     text-align: center;
-}
-.logo{
+    
+  }
+  
+  ion-item{
+  margin-bottom: 5px;
+  }
+  
+  div{
+    margin-top: 300px;
+  }
+  
+  .logo{
     text-align: center;
     font-size: 2.5rem;
-    width: 7.25rem;
-    height: 3.4375rem;
-    }
-    ion-header{
-        text-align: center;
-      }
-
+      width: 7.25rem;
+      height: 3.4375rem;
+  }
+  
+  ion-header{
+    text-align: center;
+  }
+  ion-card{
+    background: white;
+  }
+  
       ion-list{
          size: 30%;
       }

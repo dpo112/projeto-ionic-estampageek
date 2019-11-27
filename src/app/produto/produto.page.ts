@@ -41,9 +41,8 @@ ngOnInit(){
   console.log(this.listaProduto)
   });
   }
-
 goDetalhePage(idValue : string){
   this.router.navigate(['produto-detalhe',{id : idValue}]);
- }
+}
 
 }
