@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'produto', loadChildren: './produto/produto.module#ProdutoPageModule' },
   { path: 'produto-cadastro', loadChildren: './produto-cadastro/produto-cadastro.module#ProdutoCadastroPageModule' },
   { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
-  { path: 'produto-detalhe', loadChildren: './produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule' }
+  { path: 'produto-detalhe', loadChildren: './produto-detalhe/produto-detalhe.module#ProdutoDetalhePageModule' },  { path: 'perfil-lista', loadChildren: './perfil-lista/perfil-lista.module#PerfilListaPageModule' }
+
 
 ];
 @NgModule({

@@ -25,8 +25,12 @@ export class AppComponent {
       title: 'Crianças',
       url: '',
       icon: 'person'
+    },
+    {
+      title: 'Perfil',
+      url: '/perfil-lista',
+      icon: 'person'
     }
- 
  
   ];
 

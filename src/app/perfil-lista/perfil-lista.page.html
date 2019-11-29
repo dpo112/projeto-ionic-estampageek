@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+        <img class="logo" src="/assets/fundologo.png" alt=""/>  
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+  <ion-card>
+      <ion-avatar>
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+    <ion-item>
+      <h3>{{clientes.nomeCompleto}}</h3>
+      <h3>{{clientes.email}}</h3>
+    </ion-item>
+  </ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label>Informações Pessoais</ion-label>
+      <ion-icon name="arrow-forward" slot="end" (click)="goPage()"></ion-icon>
+    </ion-item>
+    <ion-item>
+        <ion-label>Endereços</ion-label>
+        <ion-icon name="arrow-forward" slot="end" (click)="goPage()"></ion-icon>
+      </ion-item>
+      <ion-item>
+          <ion-label>Pedidos</ion-label>
+          <ion-icon name="arrow-forward" slot="end" (click)="goPage()"></ion-icon>
+        </ion-item>
+  </ion-list>     
+</ion-content>
