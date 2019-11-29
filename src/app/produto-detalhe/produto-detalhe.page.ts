@@ -67,4 +67,16 @@ obterImagem(){
 goCarrinhoPage(idValue : string){
   this.router.navigate(['carrinho',{id : idValue}]);
  }
+ goInicio(){
+  this.router.navigate(['home']);
+}
+goListar(){
+  this.router.navigate(['produto']);
+}
+goCart(){
+  this.router.navigate(['carrinho']);
+}
+goPerf(){
+  this.router.navigate(['perfil']);
+}
 }

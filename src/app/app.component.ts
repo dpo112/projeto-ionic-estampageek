@@ -25,6 +25,11 @@ export class AppComponent {
       title: 'Crianças',
       url: '',
       icon: 'person'
+    },
+    {
+      title: 'sair',
+      url: 'logoff',
+      icon: 'exit',
     }
  
  

@@ -44,5 +44,16 @@ ngOnInit(){
 goDetalhePage(idValue : string){
   this.router.navigate(['produto-detalhe',{id : idValue}]);
 }
-
+goInicio(){
+  this.router.navigate(['home']);
+}
+goListar(){
+  this.router.navigate(['produto']);
+}
+goCart(){
+  this.router.navigate(['carrinho']);
+}
+goPerf(){
+  this.router.navigate(['perfil']);
+}
 }

@@ -1,6 +1,10 @@
 <ion-header>
-  <ion-buttons slot="start" class="buttons-first-slot sc-ion-buttons-ios-h sc-ion-buttons-ios-s ios hydrated" ></ion-buttons>
-<img class="logo" src="/assets/fundologo.png" alt=""/>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <img class="logo" src="/assets/fundologo.png" alt=""/>  
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -16,3 +20,34 @@
 <ion-button icon-left size="small" shape="round" tappable (click)="Compra()" color="success">Finalizar Compra</ion-button>
 </ion-card>  
 </ion-content>
+
+<ion-item>
+  <ion-tabs>  
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="goInicio()" >
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button (click)="goListar()" >
+      <ion-icon name="list"></ion-icon>
+      <ion-label>Lista</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button (click)="goCart()" >
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Carrinho</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button href="#" >
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Favorito</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button (click)="goPerf()" >
+      <ion-icon name="contact"></ion-icon>
+      <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  </ion-item> 
