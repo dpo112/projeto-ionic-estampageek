@@ -32,7 +32,6 @@ export class AppComponent {
       icon: 'exit',
     }
  
- 
   ];
 
   constructor(

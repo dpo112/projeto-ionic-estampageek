@@ -1,4 +1,4 @@
-export class Perfil{
+export class Clientes{
     
     id : string;
     nomeCompleto : string;
@@ -8,7 +8,7 @@ export class Perfil{
     telefone : string;
     cpf : string;
 
-    setPerfil(obj : any){
+    setClientes(obj : any){
         this.id = obj.id;
         this.nomeCompleto = obj.nomeCompleto;
         this.senha = obj.senha;
