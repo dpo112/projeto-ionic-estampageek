@@ -27,9 +27,9 @@ export class AppComponent {
       icon: 'person'
     },
     {
-      title: 'Perfil',
-      url: '/perfil-lista',
-      icon: 'person'
+      title: 'sair',
+      url: 'logoff',
+      icon: 'exit',
     }
  
   ];
