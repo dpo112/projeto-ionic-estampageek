@@ -12,12 +12,12 @@
       <ion-list>
       <ion-item *ngFor="let produto of listaProduto">
           <ion-label slot="start">
-            <img src="{{produto.imagem}}">
+            <img (click)="goDetalhePage(produto.id)" src="{{produto.imagem}}">
           </ion-label>
           <ion-label>
-            <h2>{{produto.nomeProduto}}</h2>
+            <h2 (click)="goDetalhePage(produto.id)">{{produto.nomeProduto}}</h2>
             <h3>R${{produto.preco}}</h3>
-            <ion-button icon-left size="small" expand="full" shape="round" tappable (click)="goDetalhePage(produto.id)">Detalhes</ion-button>
+            <ion-button icon-left size="small" expand="full" shape="round" (click)="addItem(produto)" tappable >Adicionar ao Carrinho</ion-button>
           </ion-label>
       </ion-item>
       </ion-list>   
@@ -35,9 +35,10 @@
       <ion-label>Lista</ion-label>
       </ion-tab-button>
       
-      <ion-tab-button (click)="goCart()" >
+      <ion-tab-button href="/carrinho" >
       <ion-icon name="cart"></ion-icon>
-      <ion-label>Carrinho</ion-label>
+      
+      <ion-label>Carrinho {{this.carrinho.items.length}}</ion-label>
       </ion-tab-button>
       
       <ion-tab-button href="#" >

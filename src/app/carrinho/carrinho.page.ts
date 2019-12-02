@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController, AlertController } from '@ionic/angular';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Carrinho } from '../model/carrinho';
+import { CarrinhoService } from '../services/carrinho.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -14,33 +16,36 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class CarrinhoPage implements OnInit {
 
   listaProduto :Produto[] = [];
+  carrinho : Carrinho = new Carrinho();
+  total : number;
 
   constructor(private db: AngularFirestore,
-     private router : Router,private fireStorage : AngularFireStorage) {
+     private router : Router,private fireStorage : AngularFireStorage,
+     private car : CarrinhoService) { // Injeta o Carrinho Service
+      
+      // Evitar erro de inicializar o carrinho null
+      this.carrinho.items = [];
+      
+      // Se o carrinho for nulo
+      if(this.car.getCart()==null){
+        this.carrinho.items = []; // Cria um carrinho
+      }else{
+        this.carrinho = this.car.getCart(); // pega o carrinho criado
+      }
+      
+      // Calcula o total
+      this.total = this.car.total();
 
+      
 }
 
 ngOnInit(){
-  this.db.collection('produto').snapshotChanges().subscribe(response=>{
-  this.listaProduto = [];
-    response.forEach(doc=>{
-    let p = new Produto();
-    p.setProduto(doc.payload.doc.data(),doc.payload.doc.id);
-        
-    let ref = this.fireStorage.storage.ref().child(`produto/${p.id}.jpg`);
-    ref.getDownloadURL().then(url => {
-    p.imagem = url;
-    this.listaProduto.push(p);
-  }).catch(()=>{
-    p.imagem = "../../assets/camisa-preta.png";
-    this.listaProduto.push(p);
-  })
+  if(this.car.getCart()==null){
+    this.carrinho.items = [];
+  }else{
+    this.carrinho = this.car.getCart();
+  }
   
-  },err=>{
-    console.log(err);
-  })
-  console.log(this.listaProduto)
-  });
   }
 
   goPage(idValue : string){
@@ -57,6 +62,19 @@ ngOnInit(){
     this.router.navigate(['carrinho']);
   }
   goPerf(){
-    this.router.navigate(['perfil']);
+    this.router.navigate(['perfil-lista']);
   }
+
+  removeProduto(produto : Produto) : Carrinho{
+    let cart = this.car.getCart();
+    // Verifica se existe o produto no carrinho
+
+    let position = cart.items.findIndex(x => x.produto.id==produto.id);
+    if(position!= -1){ // -1 -> Não existe
+        cart.items.splice(position,1);
+        this.carrinho.items.splice(position,1); // exclui o item carrinho
+    }
+    this.car.setCart(cart); // atualiza o carrinho
+    return cart;
+}
 }

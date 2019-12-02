@@ -3,6 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { Produto } from '../model/produto';
+import { CarrinhoService } from '../services/carrinho.service';
+import { Carrinho } from '../model/carrinho';
+import { Item } from '../model/item';
 
 
 @Component({
@@ -13,9 +16,22 @@ import { Produto } from '../model/produto';
 export class ProdutoPage implements OnInit{
 
   listaProduto :Produto[] = [];
+  carrinho : Carrinho = new Carrinho();
 
   constructor(private db: AngularFirestore,
-     private router : Router,private fireStorage : AngularFireStorage) {
+     private router : Router,
+     private fireStorage : AngularFireStorage,
+     private car : CarrinhoService) {
+
+      this.carrinho.items = [];
+
+      if(this.car.getCart()==null){
+        this.carrinho.items = [];
+      }else{
+        this.carrinho = this.car.getCart();
+      }
+
+      
 
 }
 
@@ -41,7 +57,8 @@ ngOnInit(){
   console.log(this.listaProduto)
   });
   }
-goDetalhePage(idValue : string){
+
+  goDetalhePage(idValue : string){
   this.router.navigate(['produto-detalhe',{id : idValue}]);
 }
 goInicio(){
@@ -54,6 +71,27 @@ goCart(){
   this.router.navigate(['carrinho']);
 }
 goPerf(){
-  this.router.navigate(['perfil']);
+  this.router.navigate(['perfil-lista']);
 }
+
+addItem(p : Produto){
+
+
+  if(this.car.getCart()==null){
+    this.carrinho.items = [];
+  }else{
+    this.carrinho = this.car.getCart();
+  }
+
+  let item = new Item();
+  item.produto = p;
+  item.quantidade = 1;
+  
+  this.carrinho.items.push(item);
+
+  this.car.setCart(this.carrinho);
+
+  
+}
+
 }

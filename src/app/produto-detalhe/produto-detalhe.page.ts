@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController, AlertController } from '@ionic/angular';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { CarrinhoService } from '../services/carrinho.service';
+import { Carrinho } from '../model/carrinho';
+import { Item } from '../model/item';
 
 @Component({
   selector: 'app-produto-detalhe',
@@ -16,6 +19,7 @@ export class ProdutoDetalhePage implements OnInit{
   id : string;
   formGroup : FormGroup;
   produto : Produto = new Produto();
+  carrinho : Carrinho = new Carrinho();
 
 constructor(private actRoute : ActivatedRoute,
   private formB : FormBuilder,
@@ -23,7 +27,8 @@ constructor(private actRoute : ActivatedRoute,
   private toastCtrl : ToastController,
   private router : Router,
   private alertController : AlertController,
-  private fireStorage : AngularFireStorage){
+  private fireStorage : AngularFireStorage,
+  private car : CarrinhoService){
 
     this.id = this.actRoute.snapshot.paramMap.get('id');
 
@@ -36,6 +41,14 @@ constructor(private actRoute : ActivatedRoute,
       categoria : [],
     
     })
+    this.carrinho.items = [];
+
+    if(this.car.getCart()==null){
+      this.carrinho.items = [];
+    }else{
+      this.carrinho = this.car.getCart();
+    }
+
    }
 
 ngOnInit() {
@@ -77,6 +90,26 @@ goCart(){
   this.router.navigate(['carrinho']);
 }
 goPerf(){
-  this.router.navigate(['perfil']);
+  this.router.navigate(['perfil-lista']);
+}
+
+addItem(p : Produto){
+
+
+  if(this.car.getCart()==null){
+    this.carrinho.items = [];
+  }else{
+    this.carrinho = this.car.getCart();
+  }
+
+  let item = new Item();
+  item.produto = p;
+  item.quantidade = 1;
+  
+  this.carrinho.items.push(item);
+
+  this.car.setCart(this.carrinho);
+
+  
 }
 }

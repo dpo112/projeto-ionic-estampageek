@@ -5,6 +5,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ToastController, LoadingController } from '@ionic/angular';
+import { Carrinho } from '../model/carrinho';
+import { CarrinhoService } from '../services/carrinho.service';
 
 @Component({
   selector: 'app-perfil-lista',
@@ -17,13 +19,15 @@ export class PerfilListaPage implements OnInit {
   id : string;
   clientes : Clientes = new Clientes();
   imagem: any; 
+  carrinho : Carrinho = new Carrinho();
 
   constructor(private formBuild : FormBuilder,
     private auth : AngularFireAuth,
     private db : AngularFirestore,
     private fireStorage : AngularFireStorage,
     private toastCtrl: ToastController,
-    private loadingController: LoadingController) { 
+    private loadingController: LoadingController,
+    private car : CarrinhoService) { 
 
       this.formGroup = this.formBuild.group({
           nomeCompleto : ['', Validators.required],
@@ -38,6 +42,13 @@ export class PerfilListaPage implements OnInit {
         this.loadClientes();
         this.downloadImage();
       })
+      this.carrinho.items = [];
+
+      if(this.car.getCart()==null){
+        this.carrinho.items = [];
+      }else{
+        this.carrinho = this.car.getCart();
+      }
     }
 
 

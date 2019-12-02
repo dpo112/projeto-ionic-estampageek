@@ -16,7 +16,7 @@
 <div><ion-card-subtitle>{{produto.descricao}}</ion-card-subtitle></div>
 <div><ion-card-title>R$ {{produto.preco}}</ion-card-title> </div>
 </ion-card-header>
-<ion-button icon-left size="small" shape="round" tappable (click)="goCarrinhoPage()" >Adicionar ao Carrinho</ion-button>
+<ion-button icon-left size="small" shape="round" tappable (click)="addItem(produto)" >Adicionar ao Carrinho</ion-button>
 <ion-button icon-left size="small" shape="round" tappable (click)="Compra()" color="success">Finalizar Compra</ion-button>
 </ion-card>  
 </ion-content>
@@ -34,9 +34,9 @@
       <ion-label>Lista</ion-label>
       </ion-tab-button>
       
-      <ion-tab-button (click)="goCart()" >
+      <ion-tab-button href="/carrinho" >
       <ion-icon name="cart"></ion-icon>
-      <ion-label>Carrinho</ion-label>
+      <ion-label>Carrinho {{this.carrinho.items.length}}</ion-label>
       </ion-tab-button>
       
       <ion-tab-button href="#" >
