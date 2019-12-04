@@ -29,7 +29,8 @@ export class PerfilListaPage implements OnInit {
     private fireStorage : AngularFireStorage,
     private toastCtrl: ToastController,
     private loadingController: LoadingController,
-    private car : CarrinhoService) { 
+    private car : CarrinhoService,
+    private router : Router,) { 
 
       this.formGroup = this.formBuild.group({
           nomeCompleto : ['', Validators.required],
@@ -105,17 +106,22 @@ downloadImage(){
   })
 }
 ngOnInit() {
+
+}
+
+goListaPage(idValue : string){
+  this.router.navigate(['produto',{id : idValue}]);
 }
 goInicio(){
-  this.router.navigate(['home']);
+this.router.navigate(['home']);
 }
 goListar(){
-  this.router.navigate(['produto']);
+this.router.navigate(['produto']);
 }
 goCart(){
-  this.router.navigate(['carrinho']);
+this.router.navigate(['carrinho']);
 }
 goPerf(){
-  this.router.navigate(['perfil-lista']);
+this.router.navigate(['perfil-lista']);
 }
 }
