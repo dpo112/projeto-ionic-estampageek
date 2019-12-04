@@ -25,13 +25,25 @@
     <ion-label floating>Preço</ion-label>
     <ion-input formControlName="preco" type=text></ion-input>
   </ion-list>
-  <ion-list>
-    <ion-label floating>Tamanho</ion-label>
-    <ion-input formControlName="tamanho" type=text></ion-input>
-  </ion-list>
+  <ion-label>Tamanho</ion-label>
+    <ion-select placeholder="" formControlName="tamanho">
+    <ion-select-option value="p">P</ion-select-option>
+    <ion-select-option value="m">M</ion-select-option>
+    <ion-select-option value="g">G</ion-select-option>
+    <ion-select-option value="gg">GG</ion-select-option>
+    <ion-select-option value="xg">XG</ion-select-option>
+    </ion-select>
+  <ion-label>Gênero</ion-label>
+    <ion-select placeholder="" formControlName="genero">
+    <ion-select-option value="masculino">Masculino</ion-select-option>
+    <ion-select-option value="feminino">Feminino</ion-select-option>
+    <ion-select-option value="infantil">Infantil</ion-select-option>
+    </ion-select>
+
   <ion-list>
     <ion-label floating>Descrição</ion-label>
     <ion-input formControlName="descricao" type=text></ion-input>
+  </ion-list>
 
   <ion-label>Categoria</ion-label>
     <ion-select placeholder="" formControlName="categoria">
@@ -39,8 +51,7 @@
     <ion-select-option value="meia">Meia</ion-select-option>
     <ion-select-option value="casaco">Casaco</ion-select-option>
     </ion-select> 
-  </ion-list>
-  
+
 <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
 </form>
 </ion-content>

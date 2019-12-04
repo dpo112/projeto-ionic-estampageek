@@ -31,6 +31,11 @@ export class AppComponent {
       title: 'sair',
       url: 'logoff',
       icon: 'exit',
+    },
+    {
+      title: 'Cadastrar',
+      url: '/produto-cadastro',
+      icon: 'exit',
     }
  
   ];

@@ -28,6 +28,7 @@ export class ProdutoCadastroPage implements OnInit{
       tamanho : ['',Validators.required],
       descricao : ['',Validators.required],
       categoria : ['',Validators.required],
+      genero : ['',Validators.required],
 
     });
    }
