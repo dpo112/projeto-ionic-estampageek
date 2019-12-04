@@ -21,18 +21,25 @@
             <ion-button color="danger" (click)="removeProduto(i.produto)">Remover</ion-button>
           </ion-label>
         </ion-item>
+
+
+        <ion-item>
+
+          <h4>Total: R$ {{total}}</h4>
+      
+          <h4>Consultar Frete:</h4>
+          <ion-label color="medium" position="floating">Digite aqui seu CEP</ion-label>
+          <ion-input type="text" ></ion-input>
+      
+          
+        </ion-item>
+        <ion-button class="botao" icon-left size="medium" shape="round">Calcular Frete</ion-button>
+        <ion-button icon-right size="medium"  shape="round" tappable (click)="produtoDetalhe()" color="success">Finalizar Compra</ion-button>
+
+
+
 </ion-list>
-<ion-item>
 
-    <h4>Total: R$ {{total}}</h4>
-
-    <h4>Consulte o seu frete</h4>
-    <ion-label color="medium" position="floating">Digite aqui o seu CEP</ion-label>
-    <ion-input type="text" ></ion-input>
-
-    <ion-button class="botao" icon-right size="small" shape="round">Calcular</ion-button>
-  </ion-item>
-  <ion-button icon-left size="medium" expand="full" shape="round" tappable (click)="produtoDetalhe()">Finalizar Comprar</ion-button>
 </ion-content>
 
 <ion-item>
@@ -44,8 +51,8 @@
       </ion-tab-button>
       
       <ion-tab-button (click)="goListar()" >
-      <ion-icon name="list"></ion-icon>
-      <ion-label>Lista</ion-label>
+      <ion-icon name="shirt"></ion-icon>
+      <ion-label>Produtos</ion-label>
       </ion-tab-button>
       
       <ion-tab-button href="/carrinho" >
