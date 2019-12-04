@@ -45,7 +45,7 @@
         <ion-label>Lista</ion-label>
         </ion-tab-button>
         
-        <ion-tab-button href="/carrinho" >
+        <ion-tab-button (click)="goCart()" >
         <ion-icon name="cart"></ion-icon>
         
         <ion-label>Carrinho {{this.carrinho.items.length}}</ion-label>
