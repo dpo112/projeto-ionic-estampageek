@@ -39,6 +39,7 @@ constructor(private actRoute : ActivatedRoute,
       tamanho : [],
       descricao : [],
       categoria : [],
+      genero : [],
     
     })
     this.carrinho.items = [];
@@ -62,6 +63,7 @@ ngOnInit() {
     this.produto.tamanho = response.data().tamanho;
     this.produto.descricao = response.data().descricao;
     this.produto.categoria = response.data().categoria;
+    this.produto.genero = response.data().genero;
     this.obterImagem();
   
   })
