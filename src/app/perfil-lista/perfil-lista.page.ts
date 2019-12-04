@@ -7,6 +7,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { Carrinho } from '../model/carrinho';
 import { CarrinhoService } from '../services/carrinho.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-lista',
@@ -27,7 +28,8 @@ export class PerfilListaPage implements OnInit {
     private fireStorage : AngularFireStorage,
     private toastCtrl: ToastController,
     private loadingController: LoadingController,
-    private car : CarrinhoService) { 
+    private car : CarrinhoService,
+    private router : Router,) { 
 
       this.formGroup = this.formBuild.group({
           nomeCompleto : ['', Validators.required],
@@ -103,5 +105,23 @@ downloadImage(){
   })
 }
 ngOnInit() {
+
 }
+
+goListaPage(idValue : string){
+  this.router.navigate(['produto',{id : idValue}]);
+}
+goInicio(){
+this.router.navigate(['home']);
+}
+goListar(){
+this.router.navigate(['produto']);
+}
+goCart(){
+this.router.navigate(['carrinho']);
+}
+goPerf(){
+this.router.navigate(['perfil-lista']);
+}
+
 }
