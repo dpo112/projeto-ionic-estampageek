@@ -23,6 +23,7 @@ export class PerfilListaPage implements OnInit {
   carrinho : Carrinho = new Carrinho();
 
   constructor(private formBuild : FormBuilder,
+    private router: Router,
     private auth : AngularFireAuth,
     private db : AngularFirestore,
     private fireStorage : AngularFireStorage,
@@ -123,5 +124,4 @@ this.router.navigate(['carrinho']);
 goPerf(){
 this.router.navigate(['perfil-lista']);
 }
-
 }
