@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dados Pessoais</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup">
+    <ion-list>
+        <ion-card>
+            <ion-card-content>
+                <p>Nome: <strong>{{clientes.nome}}</strong></p>
+                <p>E-mail: <strong>{{clientes.email}}</strong></p>
+                <p>Data de Nascimento: <strong>{{clientes.dataNascimento}}</strong></p>
+                <p>telefone: <strong>{{clientes.telefone}}</strong></p>                
+            </ion-card-content>
+          </ion-card>
+    </ion-list>
+  </form>
+</ion-content>
