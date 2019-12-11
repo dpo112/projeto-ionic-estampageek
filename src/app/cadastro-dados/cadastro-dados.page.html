@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Cadastro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup">
+    <ion-item>
+      <ion-label position="floating">Nome Completo:</ion-label>
+      <ion-input formControlName="nomeCompleto" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CPF:</ion-label>
+      <ion-input formControlName="cpf" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data de Nacimento:</ion-label>
+      <ion-input formControlName="dataNascimento" type=text></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label position="floating">Telefone:</ion-label>
+      <ion-input formControlName="telefone" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Endereço:</ion-label>
+      <ion-input formControlName="endereco" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">N°:</ion-label>
+      <ion-input formControlName="numero" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Complemento:</ion-label>
+      <ion-input formControlName="complemento" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CEP:</ion-label>
+      <ion-input formControlName="cep" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Bairro:</ion-label>
+      <ion-input formControlName="bairro" type=text></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cidade:</ion-label>
+      <ion-input formControlName="cidade" type=text></ion-input>
+    </ion-item>
+
+        <ion-button expand="full" (click)="cadastrar()" color="success">Finalizar Cadastro</ion-button>
+        <ion-button expand="full" href="/login" color="danger">Cancelar Cadastro</ion-button>
+</form>
+
+</ion-content>

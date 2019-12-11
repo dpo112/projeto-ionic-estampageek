@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-//import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -29,10 +29,9 @@ const routes: Routes = [
   { path: 'prod-feminino', loadChildren: './prod-feminino/prod-feminino.module#ProdFemininoPageModule' },
   { path: 'prod-infantil', loadChildren: './prod-infantil/prod-infantil.module#ProdInfantilPageModule' },
   { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
-  { path: 'dados-pessoais', loadChildren: './dados-pessoais/dados-pessoais.module#DadosPessoaisPageModule' }
-
-
-
+  { path: 'dados-pessoais', loadChildren: './dados-pessoais/dados-pessoais.module#DadosPessoaisPageModule' },
+  { path: 'endereco-lista', loadChildren: './endereco-lista/endereco-lista.module#EnderecoListaPageModule' },
+  { path: 'cadastro-dados', loadChildren: './cadastro-dados/cadastro-dados.module#CadastroDadosPageModule' },
 
 ];
 @NgModule({
