@@ -15,7 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 		import { AngularFireAuthModule } from '@angular/fire/auth';
 import { firebaseConfig } from 'src/environments/firebase.config';
 import { AuthGuardService } from './services/auth-guard.service';
-
+import { PayPal } from '@ionic-native/paypal/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -32,7 +32,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AuthGuardService
+    AuthGuardService,
+    PayPal
   ],
   bootstrap: [AppComponent]
 })
