@@ -6,6 +6,8 @@ import { Produto } from '../model/produto';
 import { Carrinho } from '../model/carrinho';
 import { CarrinhoService } from '../services/carrinho.service';
 import { Item } from '../model/item';
+import { FavoritosService } from '../services/favoritos.service';
+import { Favoritos } from '../model/favoritos';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +18,13 @@ export class HomePage{
 
   listaProduto : Produto [] = [];
   carrinho : Carrinho = new Carrinho();
+  favoritos : Favoritos = new Favoritos();
 
   constructor(private db: AngularFirestore,
               private router : Router,
               private fireStorage : AngularFireStorage,
-              private car : CarrinhoService) {
+              private car : CarrinhoService,
+              private fav : FavoritosService) {
                 
                 this.carrinho.items = [];
 
@@ -88,6 +92,25 @@ export class HomePage{
     this.carrinho.items.push(item);
   
     this.car.setCart(this.carrinho);
+  
+    
+  }
+  addFav(p : Produto){
+
+
+    if(this.fav.getFav()==null){
+      this.favoritos.items = [];
+    }else{
+      this.favoritos = this.fav.getFav();
+    }
+  
+    let item = new Item();
+    item.produto = p;
+    item.quantidade = 1;
+    
+    this.favoritos.items.push(item);
+  
+    this.fav.setFav(this.favoritos);
   
     
   }

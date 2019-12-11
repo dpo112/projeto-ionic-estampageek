@@ -29,6 +29,7 @@
           <h2 (click)="goDetalhePage(produto.id)">{{produto.nomeProduto}}</h2>
           <h3>R${{produto.preco}}</h3>
           <ion-button icon-left size="small" expand="full" shape="round" (click)="addItem(produto)" tappable >Adicionar ao Carrinho</ion-button>
+          <ion-button icon-left size="small" expand="full" shape="round" (click)="addFav(produto)" tappable >Adicionar aos favoritos</ion-button>
         </ion-label>
         </ion-item> 
     </ion-list>    
@@ -52,7 +53,7 @@
       <ion-label>Carrinho {{this.carrinho.items.length}}</ion-label>
       </ion-tab-button>
       
-      <ion-tab-button href="#" >
+      <ion-tab-button href="/favoritos" >
       <ion-icon name="heart"></ion-icon>
       <ion-label>Favorito</ion-label>
       </ion-tab-button>
