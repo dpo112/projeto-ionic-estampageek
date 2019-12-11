@@ -31,7 +31,8 @@ const routes: Routes = [
   { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
   { path: 'dados-pessoais', loadChildren: './dados-pessoais/dados-pessoais.module#DadosPessoaisPageModule' },
   { path: 'endereco-lista', loadChildren: './endereco-lista/endereco-lista.module#EnderecoListaPageModule' },
-  { path: 'cadastro-dados', loadChildren: './cadastro-dados/cadastro-dados.module#CadastroDadosPageModule' },
+  { path: 'cadastro-dados', loadChildren: './cadastro-dados/cadastro-dados.module#CadastroDadosPageModule' },  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
+
 
 ];
 @NgModule({

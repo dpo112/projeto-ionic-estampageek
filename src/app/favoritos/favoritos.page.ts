@@ -5,45 +5,45 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController, AlertController } from '@ionic/angular';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Carrinho } from '../model/carrinho';
-import { CarrinhoService } from '../services/carrinho.service';
+import { Favoritos } from '../model/favoritos';
+import { FavoritosService } from '../services/favoritos.service';
 
 @Component({
-  selector: 'app-carrinho',
-  templateUrl: './carrinho.page.html',
-  styleUrls: ['./carrinho.page.scss'],
+  selector: 'app-favoritos',
+  templateUrl: './favoritos.page.html',
+  styleUrls: ['./favoritos.page.scss'],
 })
-export class CarrinhoPage implements OnInit {
+export class FavoritosPage implements OnInit {
 
   listaProduto :Produto[] = [];
-  carrinho : Carrinho = new Carrinho();
+  favoritos : Favoritos = new Favoritos();
   total : number;
 
   constructor(private db: AngularFirestore,
      private router : Router,private fireStorage : AngularFireStorage,
-     private car : CarrinhoService) { // Injeta o Carrinho Service
+     private fav : FavoritosService) { // Injeta o Carrinho Service
       
       // Evitar erro de inicializar o carrinho null
-      this.carrinho.items = [];
+      this.favoritos.items = [];
       
-      // Se o carrinho for nulo
-      if(this.car.getCart()==null){
-        this.carrinho.items = []; // Cria um carrinho
+      // Se o favoritos for nulo
+      if(this.fav.getFav()==null){
+        this.favoritos.items = []; // Cria um favoritos
       }else{
-        this.carrinho = this.car.getCart(); // pega o carrinho criado
+        this.favoritos = this.fav.getFav(); // pega o favoritos criado
       }
       
       // Calcula o total
-      this.total = this.car.total();
+      //this.total = this.fav.total();
 
       
 }
 
 ngOnInit(){
-  if(this.car.getCart()==null){
-    this.carrinho.items = [];
+  if(this.fav.getFav()==null){
+    this.favoritos.items = [];
   }else{
-    this.carrinho = this.car.getCart();
+    this.favoritos = this.fav.getFav();
   }
   
   }
@@ -64,20 +64,17 @@ ngOnInit(){
   goPerf(){
     this.router.navigate(['perfil-lista']);
   }
-  goPaypal(){
-    this.router.navigate(['pagamento-pay-pal']);
-  }
 
-  removeProduto(produto : Produto) : Carrinho{
-    let cart = this.car.getCart();
+  removeProduto(produto : Produto) : Favoritos{
+    let fav = this.fav.getFav();
     // Verifica se existe o produto no carrinho
 
-    let position = cart.items.findIndex(x => x.produto.id==produto.id);
+    let position = fav.items.findIndex(x => x.produto.id==produto.id);
     if(position!= -1){ // -1 -> Não existe
-        cart.items.splice(position,1);
-        this.carrinho.items.splice(position,1); // exclui o item carrinho
+        fav.items.splice(position,1);
+        this.favoritos.items.splice(position,1); // exclui o item carrinho
     }
-    this.car.setCart(cart); // atualiza o carrinho
-    return cart;
+    this.fav.setFav(fav); // atualiza o carrinho
+    return fav;
 }
 }
