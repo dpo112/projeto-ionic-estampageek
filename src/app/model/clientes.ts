@@ -2,20 +2,29 @@ export class Clientes{
     
     id : string;
     nomeCompleto : string;
-    senha: string;
-    email : string;
+    cpf : string;
     dataNascimento : string;
     telefone : string;
-    cpf : string;
+    cep: string;
+    endereco: string;
+    numero: string;
+    complemento: string;
+    bairro: string;
+    cidade: string;
+    
 
     setClientes(obj : any){
         this.id = obj.id;
         this.nomeCompleto = obj.nomeCompleto;
-        this.senha = obj.senha;
-        this.email = obj.email;
+        this.cpf = obj.cpf;
         this.dataNascimento = obj.dataNascimento;
         this.telefone = obj.telefone;
-        this.cpf = obj.cpf;
-
+        this.cep = obj.cep;
+        this.endereco = obj.endereco;
+        this.numero = obj.numero;
+        this.complemento = obj.complemento;
+        this.bairro = obj.bairro;
+        this.cidade = obj.cidade;
+        
     }
 }

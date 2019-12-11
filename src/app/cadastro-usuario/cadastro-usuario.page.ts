@@ -20,21 +20,24 @@ constructor(public afAuth: AngularFireAuth,
 ngOnInit() {
   }
 
-cadastrar(){
-    this.afAuth.auth.createUserWithEmailAndPassword(this.email,this.senha).then(()=>{
-    this.presentToast('Login Cadastrado!');
-    this.router.navigate(['/cadastro-dados']);
+  cadastrar(){
+    this.afAuth.auth.createUserWithEmailAndPassword(this.email,this.senha)
+    .then(()=> {
+      
+      this.presentToast('Cadastro realizado com sucesso!');
+      this.router.navigate(['/cadastro-dados']);
     }).catch(()=>{
-    this.presentToast('Cadastro Inválido!');
-  })    
-}
+      this.presentToast('Cadastro inválido!');
+    })
+  }
 
-async presentToast(msg : string){
+  async presentToast(msg : string) {
     const toast = await this.toastCtrl.create({
-    message: msg,
-    duration: 2000
-  });
- }
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
 
 }
 

@@ -134,7 +134,7 @@ goDadosP(){
 }
 
 goEndereco(){
-  this.router.navigate(['']);
+  this.router.navigate(['/endereco-lista']);
 }
 
 goNotifica(){

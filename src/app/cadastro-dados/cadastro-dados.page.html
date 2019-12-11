@@ -1,12 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Cadastro
-    </ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+      <img class="logo" src="/assets/fundologo.png" alt=""/>  
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <!-- 
+
+    {{cliente.nomeCompleto}}
+
+   -->
   <form [formGroup]="formGroup">
     <ion-item>
       <ion-label position="floating">Nome Completo:</ion-label>
@@ -49,7 +55,7 @@
       <ion-input formControlName="cidade" type=text></ion-input>
     </ion-item>
 
-        <ion-button expand="full" (click)="cadastrar()" color="success">Finalizar Cadastro</ion-button>
+        <ion-button expand="full" (click)="cadastrar()" color="success">Confirmar Cadastro</ion-button>
         <ion-button expand="full" href="/login" color="danger">Cancelar Cadastro</ion-button>
 </form>
 
