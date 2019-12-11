@@ -29,7 +29,8 @@ export class PerfilListaPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingController: LoadingController,
     private car : CarrinhoService,
-    private router : Router,) { 
+    private router : Router,
+    ) { 
 
       this.formGroup = this.formBuild.group({
           nomeCompleto : ['', Validators.required],
@@ -41,6 +42,7 @@ export class PerfilListaPage implements OnInit {
       });
 
       this.auth.user.subscribe(resp =>{
+        this.id = resp.uid;
         this.loadClientes();
         this.downloadImage();
       })
@@ -122,5 +124,24 @@ this.router.navigate(['carrinho']);
 }
 goPerf(){
 this.router.navigate(['perfil-lista']);
+}
+goPedidos(){
+  this.router.navigate(['']);
+}
+
+goDadosP(){
+  this.router.navigate(['dados-pessoais']);
+}
+
+goEndereco(){
+  this.router.navigate(['']);
+}
+
+goNotifica(){
+  this.router.navigate(['']);
+}
+
+goLogin(){
+  this.router.navigate(['login']);
 }
 }

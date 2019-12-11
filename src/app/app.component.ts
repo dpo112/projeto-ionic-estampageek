@@ -13,29 +13,109 @@ export class AppComponent {
   public appPages = [
 
     {
-      title: 'Masculino',
-      url: '',
-      icon: 'man'
+      title: 'Login',
+      url: '/login',
+      icon: ''
     },
     {
-      title: 'Feminino',
-      url: '',
-      icon: 'woman'
+      title: 'Logoff',
+      url: '/logoff',
+      icon: ''
     },
     {
-      title: 'Infantil',
-      url: '',
-      icon: 'person'
+      title: 'Cadastro Email',
+      url: '/cadastro-usuario',
+      icon: ''
     },
     {
-      title: 'sair',
-      url: 'logoff',
-      icon: 'exit',
+      title: 'Cadastro dados Pessoais',
+      url: '/cadastro-dados',
+      icon: '',
     },
     {
-      title: 'Cadastrar',
+      title: 'Recuperar senha',
+      url: '/recuperar-senha',
+      icon: '',
+    },
+    {
+      title: 'Home',
+      url: '/home',
+      icon: '',
+    },
+    {
+      title: 'Produtos',
+      url: '/produto',
+      icon: '',
+    },
+    {
+      title: 'Produto masculino',
+      url: '/prod-masculino',
+      icon: '',
+    },
+    {
+      title: 'Produto Feminino',
+      url: '/prod-feminino',
+      icon: '',
+    },
+    {
+      title: 'Produto Infantil',
+      url: '/prod-infantil',
+      icon: '',
+    },
+    {
+      title: 'Cadastro Produto',
       url: '/produto-cadastro',
-      icon: 'exit',
+      icon: '',
+    },
+    {
+      title: 'Carrinho',
+      url: '/carrinho',
+      icon: '',
+    },
+    {
+      title: 'Produto detalhe',
+      url: '/produto-detalhe',
+      icon: '',
+    },
+    {
+      title: 'Pedido confirmação',
+      url: '/pedido-confirmacao',
+      icon: '',
+    },
+    {
+      title: 'Pagamento PayPal',
+      url: '/pagamento-pay-pal',
+      icon: '',
+    },
+    {
+      title: 'Favorito',
+      url: '',
+      icon: '',
+    },
+    {
+      title: 'Perfil cadastro',
+      url: '/perfil',
+      icon: '',
+    },
+    {
+      title: 'perfil lista',
+      url: '/perfil-lista',
+      icon: '',
+    },
+    {
+      title: 'Pedido status',
+      url: '/pedido-status',
+      icon: '',
+    },
+    {
+      title: 'Endereço lista',
+      url: '/endereco-lista',
+      icon: '',
+    },
+    {
+      title: 'Dados Pessoais',
+      url: '/dados-pessoais',
+      icon: '',
     }
  
   ];

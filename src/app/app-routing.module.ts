@@ -29,7 +29,10 @@ const routes: Routes = [
   { path: 'prod-feminino', loadChildren: './prod-feminino/prod-feminino.module#ProdFemininoPageModule' },
   { path: 'prod-infantil', loadChildren: './prod-infantil/prod-infantil.module#ProdInfantilPageModule' },
   { path: 'pagamento-pay-pal', loadChildren: './pagamento-pay-pal/pagamento-pay-pal.module#PagamentoPayPalPageModule' },
-  { path: 'dados-pessoais', loadChildren: './dados-pessoais/dados-pessoais.module#DadosPessoaisPageModule' }
+  { path: 'dados-pessoais', loadChildren: './dados-pessoais/dados-pessoais.module#DadosPessoaisPageModule' },
+  { path: 'endereco-lista', loadChildren: './endereco-lista/endereco-lista.module#EnderecoListaPageModule' },  { path: 'cadastro-dados', loadChildren: './cadastro-dados/cadastro-dados.module#CadastroDadosPageModule' },
+
+
 
 
 
