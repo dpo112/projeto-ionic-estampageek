@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
+import { Carrinho } from 'src/app/model/carrinho'
 
 @Component({
   selector: 'app-pagamento-pay-pal',
