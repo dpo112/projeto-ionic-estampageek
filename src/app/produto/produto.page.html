@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-button icon-left size="small" shape="round" (click)="goProdMasculino()" tappable >Masculino</ion-button>
+  <ion-button icon-left size="small" shape="round" (click)="goProdFeminino()" tappable >Feminino</ion-button>
+  <ion-button icon-left size="small" shape="round" (click)="goProdInfantil()" tappable >Infantil</ion-button>
 <ion-searchbar color="light"></ion-searchbar>
       <ion-list>
       <ion-item *ngFor="let produto of listaProduto">
