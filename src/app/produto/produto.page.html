@@ -8,13 +8,17 @@
 </ion-header>
 
 <ion-content>
+  <ion-button icon-left size="small" shape="round" (click)="goProdMasculino()" tappable >Masculino</ion-button>
+  <ion-button icon-left size="small" shape="round" (click)="goProdFeminino()" tappable >Feminino</ion-button>
+  <ion-button icon-left size="small" shape="round" (click)="goProdInfantil()" tappable >Infantil</ion-button>
 <ion-searchbar color="light"></ion-searchbar>
       <ion-list>
       <ion-item *ngFor="let produto of listaProduto">
+        <ion-icon name="heart"></ion-icon>
           <ion-label slot="start">
             <img (click)="goDetalhePage(produto.id)" src="{{produto.imagem}}">
           </ion-label>
-          <ion-label>
+          <ion-label >
             <h2 (click)="goDetalhePage(produto.id)">{{produto.nomeProduto}}</h2>
             <h3>R${{produto.preco}}</h3>
             <ion-button icon-left size="small" expand="full" shape="round" (click)="addItem(produto)" tappable >Adicionar ao Carrinho</ion-button>

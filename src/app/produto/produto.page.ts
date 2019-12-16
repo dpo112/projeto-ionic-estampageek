@@ -74,6 +74,18 @@ goPerf(){
   this.router.navigate(['perfil-lista']);
 }
 
+goProdMasculino(){
+  this.router.navigate(['prod-masculino']);
+}
+
+goProdFeminino(){
+  this.router.navigate(['prod-feminino']);
+}
+
+goProdInfantil(){
+  this.router.navigate(['prod-infantil']);
+}
+
 addItem(p : Produto){
 
 
