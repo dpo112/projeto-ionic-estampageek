@@ -18,6 +18,7 @@ export class PerfilListaPage implements OnInit {
 
   formGroup : FormGroup;
   id : string;
+  email : string;
   clientes : Clientes = new Clientes();
   imagem: any; 
   carrinho : Carrinho = new Carrinho();
@@ -43,6 +44,7 @@ export class PerfilListaPage implements OnInit {
 
       this.auth.user.subscribe(resp =>{
         this.id = resp.uid;
+        this.email = resp.email;
         this.loadClientes();
         this.downloadImage();
       })
@@ -58,6 +60,7 @@ export class PerfilListaPage implements OnInit {
 
 loadClientes(){
   this.db.collection('clientes').doc(this.id).get().subscribe(response =>{
+    
     if(response.exists == false){
       this.nClientes();
     }else{

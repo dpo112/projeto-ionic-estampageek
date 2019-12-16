@@ -25,7 +25,7 @@ ngOnInit() {
     .then(()=> {
       
       this.presentToast('Cadastro realizado com sucesso!');
-      this.router.navigate(['/cadastro-dados']);
+      this.router.navigate(['/home']);
     }).catch(()=>{
       this.presentToast('Cadastro inválido!');
     })

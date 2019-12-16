@@ -18,7 +18,7 @@
             <h2>{{i.produto.nomeProduto}}</h2>
             <h3>Tamanho: {{i.produto.tamanho}}</h3>
             <h3>R$ {{i.produto.preco}}</h3> 
-            <ion-button color="danger" (click)="removeProduto(i.produto)">Remover</ion-button>
+            <ion-button color="danger" href="/carrinho" (click)="removeProduto(i.produto)">Remover</ion-button>
           </ion-label>
         </ion-item>
 

@@ -8,21 +8,24 @@
 </ion-header>
 
 <ion-content>
- <ion-list>
+
+
   <ion-card>
-      <p>Nome Completo: <strong>{{cliente.nomeCompleto}}</strong></p>
-      <p>CPF: <strong>{{cliente.cpf}}</strong></p>
-      <p>Data de Nascimento: <strong>{{cliente.dataNascimento}}</strong></p>
-      <p>Telefone: <strong>{{cliente.telefone}}</strong></p>
-      <p>CEP: <strong>{{cliente.cep}}</strong></p>
-      <p>Endereço: <strong>{{cliente.endereco}}</strong></p>
-      <p>N°: <strong>{{cliente.numero}}</strong></p>
-      <p>Complemento: <strong>{{cliente.complemento}}</strong></p>
-      <p>Bairro: <strong>{{cliente.bairro}}</strong></p>
-      <p>Cidade: <strong>{{cliente.cidade}}</strong></p>
+      <h6>Nome Completo: <strong>{{cliente.nomeCompleto}}</strong></h6>
+      <h6>CPF: <strong>{{cliente.cpf}}</strong></h6>
+      <h6>Data de Nascimento: <strong>{{cliente.dataNascimento}}</strong></h6>
+      <h6>Telefone: <strong>{{cliente.telefone}}</strong></h6>
+      <h6>CEP: <strong>{{cliente.cep}}</strong></h6>
+      <h6>Endereço: <strong>{{cliente.endereco}}</strong></h6>
+      <h6>N°: <strong>{{cliente.numero}}</strong></h6>
+      <h6>Complemento: <strong>{{cliente.complemento}}</strong></h6>
+      <h6>Bairro: <strong>{{cliente.bairro}}</strong></h6>
+      <h6>Cidade: <strong>{{cliente.cidade}}</strong></h6>
   </ion-card>
- </ion-list>
+  <ion-button icon-right size="medium"  shape="round" tappable (click)="goCadastroDados()">Editar dados Pessoais</ion-button>
 </ion-content>
+
+
 
 
 <ion-item>

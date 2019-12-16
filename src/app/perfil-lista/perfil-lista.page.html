@@ -10,29 +10,29 @@
 <ion-card>
   <ion-col>
     <div class="image-upload">
-    <label for="file-input">
-    <div class="user-photo">
+      <label for="file-input">
+  <div class="user-photo">
       <ion-avatar>
         <img src="{{imagem}}">
       </ion-avatar>
     </div>
     <div class="photo"><ion-icon name="camera"></ion-icon></div>
     </label>
-    <input id="file-input" type="file" (change)="enviaArquivo($event)"/></div>
-  </ion-col>
-  <ion-item>
-    <h3>{{clientes.nomeCompleto}}</h3>
-    <h3>{{clientes.email}}</h3>
-  </ion-item>
+      <input id="file-input" type="file" (change)="enviaArquivo($event)" /></div>
+    </ion-col>
+ 
+    <div><h3>{{clientes.nomeCompleto}}</h3></div>
+    <div><p>{{email}}</p></div>
+
  
 <ion-list>
      <ion-item>
         <ion-icon name="cube"></ion-icon>
         <ion-label (click)="goPedidos()">Pedidos</ion-label>    
      </ion-item>
-     <ion-item>
+     <ion-item href="/dados-pessoais">
         <ion-icon name="person"></ion-icon>
-        <ion-label (click)="goDadosP()">Dados Pessoais</ion-label> 
+        <ion-label>Dados Pessoais</ion-label> 
      </ion-item>
      <ion-item>
         <ion-icon name="car"></ion-icon>

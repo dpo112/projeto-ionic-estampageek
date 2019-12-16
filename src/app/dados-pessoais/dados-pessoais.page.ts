@@ -5,6 +5,7 @@ import { CarrinhoService } from '../services/carrinho.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Clientes } from '../model/clientes';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -14,11 +15,13 @@ import { Clientes } from '../model/clientes';
 export class DadosPessoaisPage implements OnInit {
 
   id : string;
+  email : string;
   formGroup : FormGroup;
   carrinho : Carrinho = new Carrinho();
   cliente : Clientes = new Clientes();
 
   constructor(private actRoute : ActivatedRoute, 
+    private auth : AngularFireAuth,
               private router : Router,
               private car : CarrinhoService,
               private formB : FormBuilder,
@@ -26,21 +29,23 @@ export class DadosPessoaisPage implements OnInit {
 
     this.carrinho.items = [];
 
-      if(this.car.getCart()==null){
-        this.carrinho.items = [];
-      }else{
-        this.carrinho = this.car.getCart();
-      }
-
-      this.id = this.actRoute.snapshot.paramMap.get('id');
-
+    this.auth.user.subscribe(resp =>{
+      this.id = resp.uid;
+      this.email = resp.email;
+      //this.loadClientes();
+      //this.downloadImage();
+      this.carregarDados();
+      
+    })
   }
 
-  
+  ngOnInit(){ 
+    
+  }
 
-  ngOnInit(){
+  carregarDados(){
     this.db.collection("clientes").doc(this.id).get().subscribe(response=>{
-
+      //console.log(response);
     this.cliente.id = this.id;
     this.cliente.nomeCompleto = response.data().nomeCompleto;
     this.cliente.cpf = response.data().cpf;
@@ -52,9 +57,9 @@ export class DadosPessoaisPage implements OnInit {
     this.cliente.complemento = response.data().complemento;
     this.cliente.bairro = response.data().bairro;
     this.cliente.cidade = response.data().cidade;
-    })
+    });
   }
-  
+
   goInicio(){
     this.router.navigate(['home']);
   }
@@ -67,4 +72,9 @@ export class DadosPessoaisPage implements OnInit {
   goPerf(){
     this.router.navigate(['perfil-lista']);
   }
+
+  goCadastroDados(){
+    this.router.navigate(['cadastro-dados']);
+  }
+
 }

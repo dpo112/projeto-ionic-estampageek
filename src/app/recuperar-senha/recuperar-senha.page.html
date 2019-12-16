@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content class="ion-padding home-app" fullscreen="true">
-  <div>
-    <ion-item>
-      <ion-label fixed>E-mail:</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
-    </ion-item>
+<div>
+  <ion-item>
+   <ion-label fixed>E-mail:</ion-label>
+   <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
+  </ion-item>
 </div>
-  <ion-button expand="full" (click)="recuperarSenha()">Recuperar Senha</ion-button>
-  
+
+<ion-button icon-left size="full" expand="full" shape="round" (click)="recuperarSenha()" tappable>Recuperar Senha</ion-button>  
 
 </ion-content>

@@ -1,58 +1,21 @@
 <ion-header>
   <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
+    <ion-menu-button></ion-menu-button>
     </ion-buttons>
       <img class="logo" src="/assets/fundologo.png" alt=""/>  
   </ion-toolbar>
 </ion-header>
-<ion-content>
- 
-      <ion-list class="list">
-          <h2 text-align="center">Favoritos</h2>
-      <ion-item *ngFor="let i of favoritos.items">
-          <ion-label slot="start">
-            <img src="{{i.produto.imagem}}">
-          </ion-label>
-          <ion-label>
-            <h2>{{i.produto.nomeProduto}}</h2>
-            <h3>Tamanho: {{i.produto.tamanho}}</h3>
-            <h3>R$ {{i.produto.preco}}</h3> 
-            <ion-button color="danger" (click)="removeProduto(i.produto)">Remover</ion-button>
-          </ion-label>
-        </ion-item>
 
-      </ion-list>
-
-    </ion-content>
-    
+<ion-content padding>
+  <form [formGroup]="formGroup">
     <ion-item>
-      <ion-tabs>  
-        <ion-tab-bar slot="bottom">
-          <ion-tab-button (click)="goInicio()" >
-          <ion-icon name="home"></ion-icon>
-          <ion-label>Home</ion-label>
-          </ion-tab-button>
-          
-          <ion-tab-button (click)="goListar()" >
-          <ion-icon name="shirt"></ion-icon>
-          <ion-label>Produtos</ion-label>
-          </ion-tab-button>
-          
-          <ion-tab-button href="/carrinho" >
-          <ion-icon name="cart"></ion-icon>
-          <ion-label>Carrinho {{this.carrinho.items.length}}</ion-label>
-          </ion-tab-button>
-          
-          <ion-tab-button href="#" >
-          <ion-icon name="heart"></ion-icon>
-          <ion-label>Favorito</ion-label>
-          </ion-tab-button>
-          
-          <ion-tab-button (click)="goPerf()" >
-          <ion-icon name="contact"></ion-icon>
-          <ion-label>Perfil</ion-label>
-          </ion-tab-button>
-        </ion-tab-bar>
-      </ion-tabs>
-      </ion-item> 
+      <ion-label position="floating">Nome :</ion-label>
+      <ion-input formControlName="nome" type=text></ion-input>
+      </ion-item>
+</form>
+<ion-button expand="full" (click)="cadastrar()" color="success">Confirmar Cadastro</ion-button>
+
+</ion-content>
+
+ 
