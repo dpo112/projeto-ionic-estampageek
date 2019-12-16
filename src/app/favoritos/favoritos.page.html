@@ -1,21 +1,25 @@
 <ion-header>
   <ion-toolbar>
-  <ion-buttons slot="start">
+    <ion-buttons slot="start">
     <ion-menu-button></ion-menu-button>
     </ion-buttons>
-      <img class="logo" src="/assets/fundologo.png" alt=""/>  
+    <ion-title>
+      Cadastro de Produtos
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  
   <form [formGroup]="formGroup">
-    <ion-item>
-      <ion-label position="floating">Nome :</ion-label>
-      <ion-input formControlName="nome" type=text></ion-input>
-      </ion-item>
+  <ion-list>
+    <ion-label floating>Nome do Produto</ion-label>
+    <ion-input formControlName="nome" type=text></ion-input>
+  </ion-list>
+  <ion-list>
+    <ion-label floating>Preço</ion-label>
+    <ion-input formControlName="preco" type=text></ion-input>
+  </ion-list>
+  <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
 </form>
-<ion-button expand="full" (click)="cadastrar()" color="success">Confirmar Cadastro</ion-button>
-
 </ion-content>
-
- 
