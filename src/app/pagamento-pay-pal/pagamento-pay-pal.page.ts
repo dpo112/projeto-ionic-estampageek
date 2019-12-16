@@ -9,11 +9,15 @@ import { Carrinho } from 'src/app/model/carrinho'
 })
 export class PagamentoPayPalPage implements OnInit {
   
-  paymentAmount: string = '3.33';
+  paymentAmount: string = 'total';
   currency: string = 'BRL';
   currencyIcon: string = 'R$';
+  total: number;
   
-  constructor(private payPal: PayPal) {
+  constructor(private payPal: PayPal,
+              private car : CarrinhoService) {
+    
+                this.total = this.car.total();
   }
 
   ngOnInit() {
@@ -31,7 +35,7 @@ export class PagamentoPayPalPage implements OnInit {
         // Only needed if you get an "Internal Service Error" after PayPal login!
         //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
       })).then(() => {
-        let payment = new PayPalPayment(this.paymentAmount, this.currency, 'Description', 'sale');
+        let payment = new PayPalPayment(this.total+"", this.currency, 'Description', 'sale');
         this.payPal.renderSinglePaymentUI(payment).then((res) => {
           console.log(res);
           // Successfully paid
