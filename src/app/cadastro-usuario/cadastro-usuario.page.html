@@ -9,17 +9,19 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label fixed>E-mail</ion-label>
-      <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Senha</ion-label>
-      <ion-input type="password" [(ngModel)]="senha"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button expand="full" (click)="cadastrar()" color="success">Cadastrar e Prosseguir</ion-button>
+<ion-list>
+  <ion-item>
+    <ion-label fixed>E-mail</ion-label>
+    <ion-input type="text" value="" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>Senha</ion-label>
+    <ion-input type="password" [(ngModel)]="senha"></ion-input>
+  </ion-item>
+</ion-list>
+
+<ion-button icon-left size="full" expand="full" shape="round" (click)="cadastrar()" tappable>Cadastrar e Entrar</ion-button>
+  
 </ion-content>
 
 
