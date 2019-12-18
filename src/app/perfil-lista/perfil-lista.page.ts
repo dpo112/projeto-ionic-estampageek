@@ -129,7 +129,7 @@ goPerf(){
 this.router.navigate(['perfil-lista']);
 }
 goPedidos(){
-  this.router.navigate(['']);
+  this.router.navigate(['pedido-status']);
 }
 
 goDadosP(){
@@ -144,7 +144,7 @@ goNotifica(){
   this.router.navigate(['']);
 }
 
-goLogin(){
-  this.router.navigate(['login']);
+goLogout(){
+  this.router.navigate(['logoff']);
 }
 }

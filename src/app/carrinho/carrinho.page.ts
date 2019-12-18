@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Produto } from '../model/produto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -7,6 +7,7 @@ import { ToastController, AlertController } from '@ionic/angular';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Carrinho } from '../model/carrinho';
 import { CarrinhoService } from '../services/carrinho.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-carrinho',
@@ -18,10 +19,35 @@ export class CarrinhoPage implements OnInit {
   listaProduto :Produto[] = [];
   carrinho : Carrinho = new Carrinho();
   total : number;
+  idUser : string;
+  formGroup :FormGroup;
 
-  constructor(private db: AngularFirestore,
-     private router : Router,private fireStorage : AngularFireStorage,
-     private car : CarrinhoService) { // Injeta o Carrinho Service
+  constructor(private formB : FormBuilder,
+     private db: AngularFirestore,
+     private router : Router,
+     private fireStorage : AngularFireStorage,
+     private toastCtrl : ToastController,
+     private car : CarrinhoService,
+     public afAuth: AngularFireAuth) {
+       
+      this.formGroup = this.formB.group({
+        nomeProduto : ['',Validators.required],
+        preco : [this.total,Validators.required],});
+
+      this.afAuth.user.subscribe(resp =>{
+        this.idUser = resp.uid;
+        this.db.collection('pedido').doc(this.idUser).get().subscribe(response=>{
+        console.log(response.data());
+    
+        this.formGroup.controls['nomeProduto'].setValue(response.data().nomeProduto);
+        this.formGroup.controls['preco'].setValue(response.data().preco);
+
+      },err=>{
+        console.log(err);
+      })
+  });
+
+      // Injeta o Carrinho Service
       
       // Evitar erro de inicializar o carrinho null
       this.carrinho.items = [];
@@ -48,10 +74,28 @@ ngOnInit(){
   
   }
 
+  cadastrar(){
+    this.db.collection('pedido').add(this.formGroup.value).then(response =>{
+    this.presentToast();
+    }).catch(()=>{
+      console.log("Error 404")
+    });
+  
+  }
+  
+  async presentToast(){
+    const toast = await this.toastCtrl.create({
+    message: 'Obrigado pela preferência',
+    duration: 2000  
+    });
+    toast.present();
+    this.router.navigate(['/pagamento-pay-pal']) 
+  }
+
+
   goPage(idValue : string){
     this.router.navigate(['produto-detalhes',{id : idValue}]);
   }
-
   goInicio(){
     this.router.navigate(['home']);
   }
@@ -63,9 +107,6 @@ ngOnInit(){
   }
   goPerf(){
     this.router.navigate(['perfil-lista']);
-  }
-  goPaypal(){
-    this.router.navigate(['pagamento-pay-pal']);
   }
 
   removeProduto(produto : Produto) : Carrinho{
