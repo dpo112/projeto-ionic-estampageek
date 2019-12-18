@@ -19,8 +19,8 @@
             <img (click)="goDetalhePage(produto.id)" src="{{produto.imagem}}">
           </ion-label>
           <ion-label>
-            <h2 (click)="goDetalhePage(produto.id)">{{produto.nomeProduto}}</h2>
-            <h3>R${{produto.preco}}</h3>
+            <h5 (click)="goDetalhePage(produto.id)">{{produto.nomeProduto}}</h5>
+            <h5>R${{produto.preco}}</h5>
             <ion-button icon-left size="small" expand="full" shape="round" (click)="addItem(produto)" tappable >Adicionar ao Carrinho</ion-button>
           </ion-label>
       </ion-item>
