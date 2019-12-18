@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
-<<<<<<< HEAD
-import { Carrinho } from 'src/app/model/carrinho'
-=======
->>>>>>> 10d3f1b3a7fb372dac4c4c054bbc9d14aa948868
 import { CarrinhoService } from '../services/carrinho.service';
 
 @Component({
