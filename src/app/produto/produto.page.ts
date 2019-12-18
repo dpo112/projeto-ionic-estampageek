@@ -6,6 +6,7 @@ import { Produto } from '../model/produto';
 import { CarrinhoService } from '../services/carrinho.service';
 import { Carrinho } from '../model/carrinho';
 import { Item } from '../model/item';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -17,8 +18,9 @@ export class ProdutoPage implements OnInit{
 
   listaProduto :Produto[] = [];
   carrinho : Carrinho = new Carrinho();
-
+  id : string;
   constructor(private db: AngularFirestore,
+    private auth : AngularFireAuth,
      private router : Router,
      private fireStorage : AngularFireStorage,
      private car : CarrinhoService) {
@@ -30,6 +32,10 @@ export class ProdutoPage implements OnInit{
       }else{
         this.carrinho = this.car.getCart();
       }
+
+      this.auth.user.subscribe(resp =>{
+        this.id = resp.uid;
+      })
 
       
 
@@ -104,6 +110,22 @@ addItem(p : Produto){
   this.car.setCart(this.carrinho);
 
   
+}
+
+favoritoAdd(produto : Produto){
+
+  let dados = {
+    "id": produto.id,
+    "nome": produto.nomeProduto,
+    "idUser" : this.id
+  }
+
+  this.db.collection('favoritos')
+    .add(dados).then(response =>{
+        console.log(dados);
+    }).catch(()=>{
+      console.log("Erro ao Cadastrar")
+    });
 }
 
 }
