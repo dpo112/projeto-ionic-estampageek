@@ -14,6 +14,7 @@
 <ion-searchbar color="light"></ion-searchbar>
       <ion-list>
       <ion-item *ngFor="let produto of listaProduto">
+        <ion-icon name="heart" (click)="favoritoAdd(produto)"></ion-icon>
           <ion-label slot="start">
             <img (click)="goDetalhePage(produto.id)" src="{{produto.imagem}}">
           </ion-label>
@@ -45,7 +46,7 @@
       <ion-label>Carrinho {{this.carrinho.items.length}}</ion-label>
       </ion-tab-button>
       
-      <ion-tab-button href="#" >
+      <ion-tab-button href="/favoritos" >
       <ion-icon name="heart"></ion-icon>
       <ion-label>Favorito</ion-label>
       </ion-tab-button>
